@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Login from './pages/login';
-import Register from './pages/register';
+import LoginPage from './pages/loginPage';
+import RegisterPage from './pages/registerPage';
 
 import {
   createBrowserRouter,
@@ -11,11 +11,11 @@ import {
 const router = createBrowserRouter([
   {
     path:"/",
-    element:<Login/>
+    element:<LoginPage/>
   },
   {
     path:"/register",
-    element:<Register/>
+    element:<RegisterPage/>
   }
 ])
 
