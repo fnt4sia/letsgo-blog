@@ -1,6 +1,7 @@
-import '../index.css';
+import React from 'react';
+import '../style/index.css';
 
-export default Navbar = () => {
+export default function Navbar () {
     function dropdown(element){
         const dropdown = element.nextElementSibling
         if(dropdown.dataset.dropped == "on"){
