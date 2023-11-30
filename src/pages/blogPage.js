@@ -8,10 +8,10 @@ export default function BlogPage(){
     return(
         <>
             <Navbar/>
-            <div className="px-4 mt-24">
+            <div className="px-4 mt-24 md:px-32">
                 <img src="" className="w-full h-96 object-cover rounded-lg mt-4"/>
                 <p className="text-3xl font-bold mt-4">Cara Memakan Kerang</p>
-                <div className="flex flex-wrap text-gray-400">
+                <div className="flex gap-5 flex-wrap text-gray-400 mt-3">
                     <div className="flex items-center">
                         <FaUser className="text-black"/>
                         <p>&nbsp;Fitra Ramadhan &nbsp;</p>

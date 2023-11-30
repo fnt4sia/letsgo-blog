@@ -18,7 +18,7 @@ export default function AddDestinationPage(){
     return(
         <>
           <Navbar/>
-            <div className="w-full px-4 mt-8">
+            <div className="w-full px-4 mt-8 md:px-32">
                 <div className="w-full flex flex-col items-center">
                     <h1 className="text-3xl font-bold text-slate-400 py-6">Tambah Destination</h1>
                     <form className="w-full relative flex flex-col gap-4">
@@ -30,24 +30,26 @@ export default function AddDestinationPage(){
                             <p className="text-left font-bold">Description</p>
                             <ReactQuill theme="snow" value={value} className="ql-container ql-snow"/>
                         </div>
-                        <div>
-                            <p className="text-left font-bold">Tag</p>
-                            {arrayCheckbox.map((item, index) => (
-                                <div>
-                                    <input type="checkbox" value={item} key={index} className="mr-2"/>
-                                    <label>{item}</label>
-                                </div>
-                            ))}
-                        </div>
-                        <div>
-                            <p className="text-left font-bold">Image</p>
-                            {
-                                Array.from({ length: value }).map((_, index) => (
-                                    <input key={index} type="file" className="w-full" />
-                                ))
-                            }
-                            <input type="file" className="w-full"></input>
-                            <p className="h-12 w-12 rounded-full bg-blue-300 grid place-items-center cursor-pointer" onClick={addImage}>Add</p>
+                        <div className="md:flex justify-evenly">
+                            <div className="flex flex-col mt-5 md:mt-0">
+                                <p className="text-left font-bold">Image</p>
+                                {
+                                    Array.from({ length: value }).map((_, index) => (
+                                        <input key={index} type="file" className="w-full mt-2" />
+                                        ))
+                                    }
+                                <input type="file" className="w-full mt-2"></input>
+                                <p className="mt-3 w-fit p-0.5 rounded-md bg-blue-300 grid place-items-center cursor-pointer text-sm" onClick={addImage}>Add More Image</p>
+                            </div>
+                            <div className="md:px-8 mt-10 md:mt-0">
+                                <p className="text-left font-bold">Tag</p>
+                                {arrayCheckbox.map((item, index) => (
+                                    <div>
+                                        <input type="checkbox" value={item} key={index} className="mr-2"/>
+                                        <label>{item}</label>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                         <button type="submit" className="py-2 px-8 bg-blue-500 self-center text-white rounded-md">Submit</button>
                     </form>

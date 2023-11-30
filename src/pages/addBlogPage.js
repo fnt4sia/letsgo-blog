@@ -6,11 +6,11 @@ import {FaFile} from "react-icons/fa";
 import 'react-quill/dist/quill.snow.css';
 
 export default function AddBlogPage(){
-    const value = 'a';
+    const value = 'edit me';
     return(
         <>
             <Navbar/>
-            <div className="w-full px-4 mt-8">
+            <div className="w-full px-4 mt-8 md:px-32">
                 <div className="w-full flex flex-col items-center">
                     <h1 className="text-3xl font-bold text-slate-400 py-6">Tambah Blog</h1>
                     <form className="w-full relative flex flex-col gap-4">
@@ -24,7 +24,7 @@ export default function AddBlogPage(){
                         </div>
                         <div>
                             <p className="text-left">Image</p>
-                            <label className="w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-500 hover:text-white">
+                            <label className="w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-300 hover:text-white">
                                 <FaFile/>
                                 <span className="mt-2 text-base leading-normal">Upload Your File</span>
                                 <input type='file' className="hidden" />
