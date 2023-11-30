@@ -2,8 +2,9 @@ import React from "react";
 import '../style/index.css';
 import Navbar from "../components/navbar";
 import { useRef, useEffect } from "react";
+import {Link} from 'react-router-dom';
 
-export default function ListDestinationPage(){
+export default function ListEventPage(){
     let count = 1; //:D
     const sliderRef = useRef(null);
 
@@ -37,66 +38,90 @@ export default function ListDestinationPage(){
                 </div>
             </div>
 
-            <div class="flex justify-between mt-3 flex-wrap gap-5 p-3 md:px-24 md:gap-12 md:mt-8">
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Prambanan</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
+            <Link to='/addEvent'>
+            <div class="fixed bottom-5 md:bottom-8 right-5 md:right-8 bg-blue-400 h-10 w-10 md:h-14 md:w-14 grid place-items-center rounded-lg text-3xl font-bold">+</div>
+            </Link>
 
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Candi ujung dunia</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
+            <div class="flex justify-between mt-3 flex-wrap gap-5 p-3 md:px-24 md:gap-12 md:mt-8">
+                <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
+                        <div className="w-full h-28">
+                            <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
+                        </div>
+                        <div className="w-full p-3 flex flex-col gap-1">
+                            <h1 className="font-bold">Konser Seventeen asdadas asdadasd a asdada</h1>
+                            <hr></hr>
+                            <div>
+                            <p className="text-sm font-thin">Yogyakarta </p>
+                            <p className="text-sm font-thin">21 November 2023</p>
+                            </div>
+                            <hr></hr>
+                            <p className="text-sm font-mediumt">By : Fitra Ramadhan</p>
+                        </div>
                     </div>
-                </div>
+
+                <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
+                        <div className="w-full h-28">
+                            <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
+                        </div>
+                        <div className="w-full p-3 flex flex-col gap-1">
+                            <h1 className="font-bold">Konser Seventeen asdadas asdadasd a asdada</h1>
+                            <hr></hr>
+                            <div>
+                            <p className="text-sm font-thin">Yogyakarta </p>
+                            <p className="text-sm font-thin">21 November 2023</p>
+                            </div>
+                            <hr></hr>
+                            <p className="text-sm font-mediumt">By : Fitra Ramadhan</p>
+                        </div>
+                    </div>
                 
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Lorem, ipsum dolor sit amet consectetur</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
+                <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
+                        <div className="w-full h-28">
+                            <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
+                        </div>
+                        <div className="w-full p-3 flex flex-col gap-1">
+                            <h1 className="font-bold">Konser Seventeen asdadas asdadasd a asdada</h1>
+                            <hr></hr>
+                            <div>
+                            <p className="text-sm font-thin">Yogyakarta </p>
+                            <p className="text-sm font-thin">21 November 2023</p>
+                            </div>
+                            <hr></hr>
+                            <p className="text-sm font-mediumt">By : Fitra Ramadhan</p>
+                        </div>
                     </div>
-                </div>
                 
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Lorem, ipsum dolor sit amet consectetur</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
+                <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
+                        <div className="w-full h-28">
+                            <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
+                        </div>
+                        <div className="w-full p-3 flex flex-col gap-1">
+                            <h1 className="font-bold">Konser Seventeen asdadas asdadasd a asdada</h1>
+                            <hr></hr>
+                            <div>
+                            <p className="text-sm font-thin">Yogyakarta </p>
+                            <p className="text-sm font-thin">21 November 2023</p>
+                            </div>
+                            <hr></hr>
+                            <p className="text-sm font-mediumt">By : Fitra Ramadhan</p>
+                        </div>
                     </div>
-                </div>
                 
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Lorem, ipsum dolor sit amet consectetur</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
+                <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
+                        <div className="w-full h-28">
+                            <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
+                        </div>
+                        <div className="w-full p-3 flex flex-col gap-1">
+                            <h1 className="font-bold">Konser Seventeen asdadas asdadasd a asdada</h1>
+                            <hr></hr>
+                            <div>
+                            <p className="text-sm font-thin">Yogyakarta </p>
+                            <p className="text-sm font-thin">21 November 2023</p>
+                            </div>
+                            <hr></hr>
+                            <p className="text-sm font-mediumt">By : Fitra Ramadhan</p>
+                        </div>
                     </div>
-                </div>
                 
             </div>
         </>

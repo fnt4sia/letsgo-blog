@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/navbar";
 import '../style/index.css';
 import {useRef, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 
 export default function HomePage() {
     let count = 1; //:D
@@ -101,7 +102,11 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
+
+            <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
+            </Link>
+
 
 
 
@@ -135,7 +140,9 @@ export default function HomePage() {
                         <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03774-0/d41586-023-03774-0_26372138.jpg?as=webp" className="rounded-r-md h-full object-cover w-full group-hover:scale-105 ease-in-out duration-200"></img>
                     </div>
                 </div>
+                <Link to='/listBlog'>
                 <p className="text-right text-sm font-light cursor-pointer">See More {'->'}</p>
+                </Link>
             </div>
 
             <div className="w-full px-3 mt-4 md:px-24">
@@ -190,7 +197,9 @@ export default function HomePage() {
 
                     
                 </div>
+                <Link to='/listEvent'>
                 <p className="text-right text-sm font-light cursor-pointer">See More {'->'}</p>
+                </Link>
             </div>
 
         </>

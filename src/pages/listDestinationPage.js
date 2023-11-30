@@ -2,6 +2,7 @@ import React from "react";
 import '../style/index.css';
 import Navbar from "../components/navbar";
 import { useRef, useEffect } from "react";
+import {Link} from 'react-router-dom';
 
 export default function ListDestinationPage(){
     let count = 1; //:D
@@ -36,6 +37,11 @@ export default function ListDestinationPage(){
                     </h1>
                 </div>
             </div>
+
+            <Link to='/addDestination'>
+            <div class="fixed bottom-5 md:bottom-8 right-5 md:right-8 bg-blue-400 h-10 w-10 md:h-14 md:w-14 grid place-items-center rounded-lg text-3xl font-bold">+</div>
+            </Link>
+
 
             <div class="flex justify-between mt-3 flex-wrap gap-5 p-3 md:px-24 md:gap-12 md:mt-8">
                 <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">

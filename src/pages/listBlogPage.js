@@ -2,6 +2,7 @@ import React from "react";
 import '../style/index.css';
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import {Link} from 'react-router-dom';
 
 export default function listBlogPage(){
     return(
@@ -15,6 +16,10 @@ export default function listBlogPage(){
                     <h3 className="absolute w-full  text-lg font-bold px-3 md:p-5 md:px-7 bottom-3 text-white md:text-2xl text-center ease-in-out duration-200 group-hover:bottom-1/2 group-hover:translate-y-1/2 group-hover:text-2xl group-hover:md:text-4xl">8 Rekomendasi Tempat Wisata Di Yogyakarta !</h3>
                 </div>
             </div>
+
+            <Link to='/addBlog'>
+            <div class="fixed bottom-5 md:bottom-8 right-5 md:right-8 bg-blue-400 h-10 w-10 md:h-14 md:w-14 grid place-items-center rounded-lg text-3xl font-bold">+</div>
+            </Link>
 
             <div className="w-full px-3 mt-6 lg:mt-12 md:px-16 flex gap-3 lg:gap-10 flex-wrap">
                 <div className="w-full lg:w-2/5 grow flex gap-4 md:gap-10 bg-gray-200 rounded-md group">

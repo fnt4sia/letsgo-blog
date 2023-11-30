@@ -50,7 +50,9 @@ export default function WisataPage() {
                 </div>
             </div>
 
+            <Link to='/addDestination'>
             <div class="fixed bottom-5 md:bottom-8 right-5 md:right-8 bg-blue-400 h-10 w-10 md:h-14 md:w-14 grid place-items-center rounded-lg text-3xl font-bold">+</div>
+            </Link>
 
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold">Rekomendasi Destinasi Wisata</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
@@ -115,8 +117,9 @@ export default function WisataPage() {
                 </div>
                 
             </div>
+            <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
-
+            </Link>
 
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="alam">Wisata Alam</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
@@ -133,8 +136,9 @@ export default function WisataPage() {
                     </div>
                 </div>
             </div>
+            <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
-
+            </Link>
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="kota">Wisata Kota</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
                 <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
@@ -149,8 +153,9 @@ export default function WisataPage() {
                     </div>
                 </div>
             </div>
+            <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
-
+            </Link>
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="sejarah">Wisata Sejarah</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
                 <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
@@ -165,8 +170,9 @@ export default function WisataPage() {
                     </div>
                 </div>
             </div>
+            <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
-
+            </Link>
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="edukasi">Wisata Edukasi</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
                 <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
@@ -181,8 +187,9 @@ export default function WisataPage() {
                     </div>
                 </div>
             </div>
+            <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
-
+            </Link>
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="religi">Wisata Religi</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
                 <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
@@ -197,8 +204,9 @@ export default function WisataPage() {
                     </div>
                 </div>
             </div>
+            <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
-
+            </Link>
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="event">Event Menarik</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
                 <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">

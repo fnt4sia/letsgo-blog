@@ -14,6 +14,8 @@ import BlogPage from './pages/blogPage';
 import SearchPage from './pages/searchPage';
 import LogOut from './services/logout';
 import AddeventPage from './pages/addEvent';
+import ListEventPage from './pages/listEventPage';
+
 
 import {
   createBrowserRouter,
@@ -81,6 +83,10 @@ const router = createBrowserRouter([
   {
     path: "/addevent",
     element: <AddeventPage/>
+  },
+  {
+    path: "/listEvent",
+    element: <ListEventPage/>
   }
 ])
 
