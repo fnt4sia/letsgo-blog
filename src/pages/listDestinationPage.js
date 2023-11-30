@@ -6,7 +6,7 @@ export default function ListDestinationPage(){
     return(
         <>
         <Navbar/><Navbar/>
-            <div class="h-72 bg-black relative grid place-items-center overflow-x-hidden -z-10">
+            <div class="h-72 mt-10  bg-black relative grid place-items-center overflow-x-hidden -z-10">
                 <div id="slider" class="slider absolute h-full w-full flex ease-in-out py-4">
                     <img src="images/Candi-Prambanan-3.jpg" class="h-full min-w-full object-cover opacity-50 "></img>
                     <img src="images/download.jpg" class="h-full min-w-full object-cover opacity-50"></img>
