@@ -23,25 +23,43 @@ export default function HomePage() {
             count++;
         }, 3000);
 
-        return () => clearInterval(interval); // Clean up on component unmount
+        return () => clearInterval(interval);
     }, []);
 
-    useEffect(() => { 
+    useEffect(() => {
         fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/destination.json')
         .then((response) => response.json())
-        .then((json) => setDestinationData(json))
+        .then((data) => {
+            const destinationArray = Object.keys(data).map((key) => ({
+                id: key,
+                ...data[key]
+            }));
+            setDestinationData(destinationArray);
+        });
     }, []);
 
     useEffect(() => {
         fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/blog.json')
         .then((response) => response.json())
-        .then((json) => setBlogData(json))
+        .then((data) => {
+            const blogArray = Object.keys(data).map((key) => ({
+                id: key,
+                ...data[key]
+            }));
+            setBlogData(blogArray);
+        });
     }, []);
 
     useEffect(() => {
         fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/event.json')
         .then((response) => response.json())
-        .then((json) => setEventData(json))
+        .then((data) => {
+            const eventArray = Object.keys(data).map((key) => ({
+                id: key,
+                ...data[key]
+            }));
+            setEventData(eventArray);
+        });
     }, []);
 
     return(
@@ -63,7 +81,25 @@ export default function HomePage() {
             
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold">Rekomendasi Destinasi Wisata</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                {
+                    destinationData && destinationData.map((item) => {
+                        <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                            <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
+                            <hr className="mt-2"></hr>
+                            <h3 className="text-center font-bold">{item.title}</h3>
+                            <hr></hr>
+                            <div className="tags flex overflow-x-auto gap-1 p-1">
+                                {
+                                    item.tags && item.tags.map((tag) => {
+                                        <p className="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">{tag}</p>
+                                    })
+                                }
+                            </div>
+                        </div>
+                    })
+                }
+
+                {/* <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                     <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
                     <hr class="mt-2"></hr>
                     <h3 class="text-center font-bold">Prambanan</h3>
@@ -73,55 +109,7 @@ export default function HomePage() {
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
                     </div>
-                </div>
-
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Candi ujung dunia</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Lorem, ipsum dolor sit amet consectetur</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Lorem, ipsum dolor sit amet consectetur</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Lorem, ipsum dolor sit amet consectetur</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
+                </div> */}
             </div>
 
             <Link to='/listDestination'>

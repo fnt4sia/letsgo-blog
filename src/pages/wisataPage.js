@@ -20,7 +20,7 @@ export default function WisataPage() {
             count++;
         }, 3000);
 
-        return () => clearInterval(interval); // Clean up on component unmount
+        return () => clearInterval(interval);
     }, []);
     return(
         <>
