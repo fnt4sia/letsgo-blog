@@ -27,16 +27,22 @@ export default function Navbar () {
                     <li className='py-2'>
                         <p onClick={handleClickWisata} className='cursor-pointer'>Wisata</p>
                         {wisataDrop ? (
-                            <ul className='text-center opacity-1 duration-500 max-h-28 text-sm'>
-                                <li className='py-1 font-light cursor-pointer'>Pantai</li>
-                                <li className='py-1 font-light cursor-pointer'>Gunung</li>
-                                <li className='py-1 font-light cursor-pointer'>Air Terjun</li>
+                            <ul className='text-center opacity-1 duration-500 max-h-40 text-sm'>
+                                <a href='/wisata#alam'><li className='py-1 font-light cursor-pointer'>alam</li></a>
+                                <a href='/wisata#kota'><li className='py-1 font-light cursor-pointer'>kota</li></a>
+                                <a href='/wisata#sejarah'><li className='py-1 font-light cursor-pointer'>sejarah</li></a>
+                                <a href='/wisata#edukasi'><li className='py-1 font-light cursor-pointer'>edukasi</li></a>
+                                <a href='/wisata#religi'><li className='py-1 font-light cursor-pointer'>religi</li></a>
+                                <a href='/wisata#event'><li className='py-1 font-light cursor-pointer'>event</li></a>
                             </ul>
                         ) : (
                             <ul className='text-center opacity-0 duration-500 max-h-0 text-sm'>
-                                <li className='py-1 font-light'>Pantai</li>
-                                <li className='py-1 font-light'>Gunung</li>
-                                <li className='py-1 font-light'>Air Terjun</li>
+                                <a href='/wisata#alam'><li className='py-1 font-light cursor-pointer'>alam</li></a>
+                                <a href='/wisata#kota'><li className='py-1 font-light cursor-pointer'>kota</li></a>
+                                <a href='/wisata#sejarah'><li className='py-1 font-light cursor-pointer'>sejarah</li></a>
+                                <a href='/wisata#edukasi'><li className='py-1 font-light cursor-pointer'>edukasi</li></a>
+                                <a href='/wisata#religi'><li className='py-1 font-light cursor-pointer'>religi</li></a>
+                                <a href='/wisata#event'><li className='py-1 font-light cursor-pointer'>event</li></a>
                             </ul>
                         )}
                     </li>
@@ -57,16 +63,22 @@ export default function Navbar () {
                     <li className='py-2'>
                         <p onClick={handleClickWisata} className='cursor-none'>Wisata</p>
                         {wisataDrop ? (
-                            <ul className='text-center opacity-1 duration-500 max-h-28 text-sm cursor-none'>
-                                <li className='py-1 font-light'>Pantai</li>
-                                <li className='py-1 font-light'>Gunung</li>
-                                <li className='py-1 font-light'>Air Terjun</li>
+                            <ul className='text-center opacity-1 duration-500 max-h-40 text-sm cursor-none'>
+                                <a href='/wisata#alam'><li className='py-1 font-light cursor-pointer'>alam</li></a>
+                                <a href='/wisata#kota'><li className='py-1 font-light cursor-pointer'>kota</li></a>
+                                <a href='/wisata#sejarah'><li className='py-1 font-light cursor-pointer'>sejarah</li></a>
+                                <a href='/wisata#edukasi'><li className='py-1 font-light cursor-pointer'>edukasi</li></a>
+                                <a href='/wisata#religi'><li className='py-1 font-light cursor-pointer'>religi</li></a>
+                                <a href='/wisata#event'><li className='py-1 font-light cursor-pointer'>event</li></a>
                             </ul>
                         ) : (
                             <ul className='text-center opacity-0 duration-500 max-h-0 text-sm cursor-none'>
-                                <li className='py-1 font-light'>Pantai</li>
-                                <li className='py-1 font-light'>Gunung</li>
-                                <li className='py-1 font-light'>Air Terjun</li>
+                                <a href='/wisata#alam'><li className='py-1 font-light cursor-pointer'>alam</li></a>              
+                                <a href='/wisata#kota'><li className='py-1 font-light cursor-pointer'>kota</li></a>              
+                                <a href='/wisata#sejarah'><li className='py-1 font-light cursor-pointer'>sejarah</li></a>              
+                                <a href='/wisata#edukasi'><li className='py-1 font-light cursor-pointer'>edukasi</li></a>              
+                                <a href='/wisata#religi'><li className='py-1 font-light cursor-pointer'>religi</li></a>              
+                                <a href='/wisata#event'><li className='py-1 font-light cursor-pointer'>event</li></a>              
                             </ul>
                         )}
                     </li>
@@ -81,20 +93,26 @@ export default function Navbar () {
                 </div>
             </div>
             )}
-            <ul className='hidden sm:flex items-center text-base font-semibold px-6 py-2 gap-8 justify-center'>
-                <li className='relative'>
+            <ul className='hidden sm:h-full sm:flex items-center text-base font-semibold px-6 py-2 sm:py-0 gap-8 justify-center'>
+                <li className='relative h-full grid place-items-center'>
                     <p onClick={handleClickWisata} className="z-50 cursor-pointer">Wisata</p>
                     {wisataDrop ? (                  
-                    <ul className='text-center absolute top-full text-sm opacity-1 duration-300 cursor-pointer translate-y-0 -z-10'>
-                        <li className='py-1 font-light cursor-pointer'>Pantai</li>
-                        <li className='py-1 font-light cursor-pointer'>Gunung</li>
-                        <li className='py-1 font-light cursor-pointer'>Air Terjun</li>
+                    <ul className='text-center absolute top-full text-sm opacity-1 duration-300 cursor-pointer translate-y-0 -z-10 px-3 bg-gray-200'>
+                        <a href='/wisata#alam'><li className='py-1 font-light cursor-pointer'>alam</li></a>
+                        <a href='/wisata#kota'><li className='py-1 font-light cursor-pointer'>kota</li></a>
+                        <a href='/wisata#sejarah'><li className='py-1 font-light cursor-pointer'>sejarah</li></a>
+                        <a href='/wisata#edukasi'><li className='py-1 font-light cursor-pointer'>edukasi</li></a>
+                        <a href='/wisata#religi'><li className='py-1 font-light cursor-pointer'>religi</li></a>
+                        <a href='/wisata#event'><li className='py-1 font-light cursor-pointer'>event</li></a>
                     </ul>) 
                     : (
-                        <ul className='text-center absolute top-full text-sm opacity-0 duration-300 -translate-y-1/2 -z-10'>
-                        <li className='py-1 font-light'>Pantai</li>
-                        <li className='py-1 font-light'>Gunung</li>
-                        <li className='py-1 font-light'>Air Terjun</li>
+                        <ul className='text-center absolute top-full text-sm opacity-0 duration-300 -translate-y-1/2 -z-10 px-3  bg-gray-200'>
+                        <a href='/wisata#alam'><li className='py-1 font-light cursor-pointer'>alam</li></a>
+                        <a href='/wisata#kota'><li className='py-1 font-light cursor-pointer'>kota</li></a>
+                        <a href='/wisata#sejarah'><li className='py-1 font-light cursor-pointer'>sejarah</li></a>
+                        <a href='/wisata#edukasi'><li className='py-1 font-light cursor-pointer'>edukasi</li></a>
+                        <a href='/wisata#religi'><li className='py-1 font-light cursor-pointer'>religi</li></a>
+                        <a href='/wisata#event'><li className='py-1 font-light cursor-pointer'>event</li></a>
                     </ul>
                     )}
   
