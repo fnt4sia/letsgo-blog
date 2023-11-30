@@ -18,7 +18,7 @@ export default function Navbar () {
 
     return(
         <nav className="fixed top-0 w-screen h-10 flex justify-between items-center bg-slate-400">
-            <h1 className="self-center py-2 px-6 text-lg font-semibold cursor-pointer">LetsGo-Blog</h1>
+            <Link to={'/'}><h1 className="self-center py-2 px-6 text-lg font-semibold cursor-pointer">LetsGo Blog</h1></Link>
             <p className='sm:hidden py-2 px-6 cursor-pointer z-50' onClick={handleClick}>KLIK</p>
             {clicked ? (
             <div className={`absolute top-full left-0 w-full px-8 duration-500 opacity-1 translate-y-0 sm:hidden -z-10`}>
@@ -40,13 +40,13 @@ export default function Navbar () {
                             </ul>
                         )}
                     </li>
-                    <li className='py-2 cursor-pointer'>Komunitas</li>
-                    <li className='py-2 cursor-pointer'>Akun</li>
+                    <Link to='/community'><li className='py-2 cursor-pointer'>Komunitas</li></Link>
+                    <Link to='/account'><li className='py-2 cursor-pointer'>Akun</li></Link>
                 </ul>
                 <hr className='w-3/4'></hr>
                 <ul className='text-center'>
-                    <li className='py-2 cursor-pointer'>Login</li>
-                    <li className='py-2 cursor-pointer'>Sign Up</li>
+                    <Link to='/login'><li className='py-2 cursor-pointer'>Login</li></Link>
+                    <Link to='/register'><li className='py-2 cursor-pointer'>Sign Up</li></Link>
                 </ul>
                 </div>
             </div>
@@ -70,13 +70,13 @@ export default function Navbar () {
                             </ul>
                         )}
                     </li>
-                    <li className='py-2'>Komunitas</li>
-                    <li className='py-2'>Akun</li>
+                    <Link to ='/community'><li className='py-2'>Komunitas</li></Link>
+                    <Link to ='/akun'><li className='py-2'>Akun</li></Link>
                 </ul>
                 <hr className='w-3/4'></hr>
                 <ul className='text-center'>
-                    <li className='py-2'>Login</li>
-                    <li className='py-2'>Sign Up</li>
+                    <Link to ='/login'><li className='py-2'>Login</li></Link>
+                    <Link to ='/register'><li className='py-2'>Sign Up</li></Link>
                 </ul>
                 </div>
             </div>

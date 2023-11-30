@@ -1,15 +1,18 @@
 import React from "react";
 import '../style/index.css';
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 export default function KomunitasPage() {
     return(
         <>
             <Navbar/>
             <div className="w-full h-60 mt-16 px-3 md:px-10">
-                <div className="bg-gray-300 w-full h-full p-6">
-                    <img className="w-full h-3/4"></img>
-                    <h3 className="w-full mt-4 h-1/4 text-lg font-bold">8 Rekomendasi Tempat Wisata Di Yogyakarta </h3>
+            <div className="b w-full h-full">
+                    <div className="w-full h-2/3">
+                        <img className="w-full object-cover h-full" src="https://media.nature.com/lw767/magazine-assets/d41586-023-03711-1/d41586-023-03711-1_26352646.jpg?as=webp"></img>
+                    </div>
+                    <h3 className="w-full mt-2 text-lg font-bold">8 Rekomendasi Tempat Wisata Di Yogyakarta !</h3>
                 </div>
             </div>
 
@@ -131,7 +134,7 @@ export default function KomunitasPage() {
                 </div>
                 <p className="text-right text-sm font-light cursor-pointer">See More {'->'}</p>
             </div>
-
+            <Footer/>
         </>
     );
 }
