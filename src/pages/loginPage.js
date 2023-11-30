@@ -1,6 +1,7 @@
 import React from "react";
 import { FaUser, FaLock } from 'react-icons/fa';
 import "../style/index.css";
+import { Link } from "react-router-dom";
 
 export default function LoginPage() {
     return(
@@ -22,7 +23,7 @@ export default function LoginPage() {
                 </form>
                 <div className="text-center mt-6">
                     <span className="text-sm">Don't have an account? </span>
-                    <span className="text-sm text-blue-500"> SIGN UP</span>
+                    <Link to={'/register'} className="text-blue-500">SIGN UP</Link>
                 </div>
                 <p className="text-center">OR</p>
                 <div className="justify-center mt-4 flex gap-4">

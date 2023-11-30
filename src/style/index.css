@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+@media (min-width: 640px) {
+  html{
+    font-size: 18px;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
