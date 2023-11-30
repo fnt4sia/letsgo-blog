@@ -50,9 +50,15 @@ export default function WisataPage() {
                 </div>
             </div>
 
-            <Link to='/addDestination'>
-            <div class="fixed bottom-5 md:bottom-8 right-5 md:right-8 bg-blue-400 h-10 w-10 md:h-14 md:w-14 grid place-items-center rounded-lg text-3xl font-bold">+</div>
-            </Link>
+            {
+                (sessionStorage.getItem("username") !== null && sessionStorage.getItem("username") === "admin") ? 
+                (                
+                    <Link to='/addDestination'>
+                    <div class="fixed bottom-5 md:bottom-8 right-5 md:right-8 bg-blue-400 h-10 w-10 md:h-14 md:w-14 grid place-items-center rounded-lg text-3xl font-bold">+</div>
+                    </Link>
+                ) : (null)
+            }
+
 
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold">Rekomendasi Destinasi Wisata</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">

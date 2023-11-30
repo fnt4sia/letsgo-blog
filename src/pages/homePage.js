@@ -118,10 +118,12 @@ export default function HomePage() {
                     )
                 }
                 </div>
-    
+                
+
                 <Link to='/listDestination'>
-                <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
+                    <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
                 </Link>
+
         
                 <div className="w-full px-3 mt-6 md:px-24">
                     <p className="mb-4">Hal Yang Mungkin Menarik</p>
