@@ -103,8 +103,8 @@ export default function AddDestinationPage(){
                                 <p className="text-left font-bold">Description</p>
                                 <ReactQuill theme="snow" onChange={changeDesc} className="ql-container ql-snow"/>
                             </div>
-                            <div className="flex flex-col mt-5 md:mt-0 w-4/5 m-auto ">
-                                <p className="text-left font-bold">Image</p>
+                            <div className="flex flex-col mt-10 w-4/5 m-auto ">
+                                <p className="text-center font-bold">Image</p>
                                 <label className={`w-full flex flex-col items-center px-4 py-2 ${file.length === 0 ? 'bg-white text-blue' : 'bg-blue-300 text-white'} rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer`}>
                                     <FaFile/>
                                     <span className="mt-2 text-base leading-normal">Upload Your File</span>
@@ -113,10 +113,10 @@ export default function AddDestinationPage(){
                             </div>
 
 
-                                <div className="md:px-8 mt-10 md:mt-0 m-auto w-4/5">
-                                    <p className="text-left font-bold">Tag</p>
+                                <p className="mt-5 text-center font-bold">Tag</p>
+                                <div className="md:px-8 m-auto w-4/5 flex flex-wrap">
                                     {arrayCheckbox.map((item, index) => (
-                                        <div>
+                                        <div className="basis-1/2 lg:translate-x-1/3">
                                             <input type="checkbox" value={item} key={index} className="mr-2" onChange={changeTag}/>
                                             <label>{item}</label>
                                         </div>
