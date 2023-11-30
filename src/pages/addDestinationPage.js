@@ -104,7 +104,7 @@ export default function AddDestinationPage(){
                             </div>
                             <div className="flex flex-col mt-5 md:mt-0 w-4/5 m-auto ">
                                 <p className="text-left font-bold">Image</p>
-                                <label className={`w-full flex flex-col items-center px-4 py-2 ${file === null ? 'bg-white text-blue' : 'bg-blue-300 text-white'} rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer`}>
+                                <label className={`w-full flex flex-col items-center px-4 py-2 ${file.length === 0 ? 'bg-white text-blue' : 'bg-blue-300 text-white'} rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer`}>
                                     <FaFile/>
                                     <span className="mt-2 text-base leading-normal">Upload Your File</span>
                                     <input type='file' className="hidden" onChange={changeFile} multiple/>

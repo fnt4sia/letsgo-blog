@@ -13,6 +13,7 @@ import ListDestinationPage from './pages/listDestinationPage';
 import BlogPage from './pages/blogPage';
 import SearchPage from './pages/searchPage';
 import LogOut from './services/logout';
+import AddeventPage from './pages/addEvent';
 
 import {
   createBrowserRouter,
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
   {
     path: "/logout",
     element: <LogOut/>
+  },
+  {
+    path: "/addevent",
+    element: <AddeventPage/>
   }
 ])
 
