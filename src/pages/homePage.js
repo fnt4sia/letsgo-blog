@@ -152,7 +152,7 @@ export default function HomePage() {
                         blogData && shuffle([...blogData]).map((item, index) => {
                             if (index === 0 || index === 1) {
                                 return (
-                                    <div className="w-full flex mb-4 gap-4 md:gap-10 bg-gray-200 rounded-md group">
+                                    <Link to={`/blog/${item.id}`} className="w-full flex mb-4 gap-4 md:gap-10 bg-gray-200 rounded-md group">
                                         <div className="flex-shrink flex-grow basis-2/3 lg:basis-3/4 p-2 md:flex md:flex-col md:justify-between md:p-5">
                                             <h1 className="font-bold leading-6">{item.title}</h1>
                                             <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis" dangerouslySetInnerHTML={{__html: item.desc }}></p>
@@ -164,7 +164,7 @@ export default function HomePage() {
                                         <div className="flex-shrink flex-grow basis-1/3 lg:basis-1/4 lg:max-h-44 overflow-hidden">
                                             <img src={item.image} className="rounded-r-md h-full object-cover w-full group-hover:scale-105 ease-in-out duration-200"></img>
                                         </div>
-                                    </div>
+                                    </Link>
                                 )
                             }else{
                                 return(null);
