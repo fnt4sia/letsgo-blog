@@ -51,7 +51,7 @@ export default function AddDestinationPage(){
                                 ))}
                             </div>
                         </div>
-                        <button type="submit" className="py-2 px-8 bg-blue-500 self-center text-white rounded-md">Submit</button>
+                        <button type="submit" className="py-2 px-8 bg-blue-500 self-center text-white rounded-md mb-2">Submit</button>
                     </form>
                 </div>
             </div>

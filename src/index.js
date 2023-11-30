@@ -12,6 +12,7 @@ import ListBlogPage from './pages/listBlogPage';
 import ListDestinationPage from './pages/listDestinationPage';
 import BlogPage from './pages/blogPage';
 import SearchPage from './pages/searchPage';
+import LogOut from './services/logout';
 
 import {
   createBrowserRouter,
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
     path: "/search",
     element: <SearchPage/>
   },
+  {
+    path: "/logout",
+    element: <LogOut/>
+  }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
