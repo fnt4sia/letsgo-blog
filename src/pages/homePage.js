@@ -110,7 +110,7 @@ export default function HomePage() {
                         destinationData && destinationData.map((item) =>(
                             <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                                 <img src={item.image[0]} className="w-full rounded-t-md h-48 object-cover"></img>
-                                <hr className="mt-2"></hr>
+                                   <hr className="mt-2"></hr>
                                 <h3 className="text-center font-bold">{item.title}</h3>
                                 <hr></hr>
                                 <div className="tags flex overflow-x-auto gap-1 p-1">
