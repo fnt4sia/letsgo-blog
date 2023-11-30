@@ -39,10 +39,9 @@ export default function LoginPage() {
                     setErrorMessage("Password is incorrect");
                     return;
                 }else{
-                    localStorage.setItem("username", username);
+                    sessionStorage.setItem("username", username);
                     window.location.href = "/";
-                }
-            
+                } 
             }
         }
         

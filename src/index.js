@@ -71,7 +71,7 @@ const router = createBrowserRouter([
   {
     path: "/search",
     element: <SearchPage/>
-  }
+  },
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
