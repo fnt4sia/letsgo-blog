@@ -133,7 +133,7 @@ export default function HomePage() {
 
         
                 <div className="w-full px-3 mt-6 md:px-24">
-                    <p className="mb-4">Hal Yang Mungkin Menarik</p>
+                    <p className="pt-10 text-lg md:text-xl font-bold mb-4">Hal Yang Mungkin Menarik</p>
 
                 {
                     isLoadingBlog ? (
@@ -175,7 +175,7 @@ export default function HomePage() {
                 </div>
     
                 <div className="w-full px-3 mt-4 md:px-24">
-                    <p className="mb-4">Events</p>
+                    <p className="pt-10 text-lg md:text-xl font-bold mb-4">Events</p>
                     <div className="flex w-full gap-4 overflow-hidden">
                         {
                             isLoadingEvent ? (

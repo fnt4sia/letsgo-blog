@@ -3,6 +3,7 @@ import '../style/index.css';
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import { useRef, useEffect, useState } from "react";
+import {Link} from 'react-router-dom';
 
 export default function KomunitasPage() {
 
@@ -63,13 +64,13 @@ export default function KomunitasPage() {
             </div>
 
             <div className="w-full px-3 mt-6 md:px-24">
-                <p className="mb-4">Hal Yang Mungkin Menarik</p>
+                <p className="md:text-xl font-bold mb-4">Hal Yang Mungkin Menarik</p>
                 {
                     blogData && shuffle([...blogData]).map((item, index) => {
                         if (index === 0 || index === 1) {
                             return (
                                 <div className="w-full flex mb-4 gap-4 md:gap-10 bg-gray-200 rounded-md group">
-                                    <div className="flex-shrink flex-grow basis-2/3 lg:basis-auto p-2 md:flex md:flex-col md:justify-between md:p-5">
+                                    <div className="flex-shrink flex-grow basis-2/3 lg:basis-3/4 p-2 md:flex md:flex-col md:justify-between md:p-5">
                                         <h1 className="font-bold leading-6">{item.title}</h1>
                                         <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis" dangerouslySetInnerHTML={{__html: item.desc }}></p>
                                         <div>
@@ -77,7 +78,7 @@ export default function KomunitasPage() {
                                             <p className="text-xs">{item.date}</p>
                                         </div>
                                     </div>
-                                    <div className="flex-shrink flex-grow basis-1/3 lg:basis-auto lg:max-h-44 overflow-hidden">
+                                    <div className="flex-shrink flex-grow basis-1/3 lg:basis-1/4 lg:max-h-44 overflow-hidden">
                                         <img src={item.image} className="rounded-r-md h-full object-cover w-full group-hover:scale-105 ease-in-out duration-200"></img>
                                     </div>
                                 </div>
@@ -89,11 +90,13 @@ export default function KomunitasPage() {
                 }
                 
                 
-                <p className="text-right text-sm font-light cursor-pointer">See More {'->'}</p>
+                <Link to='/listBlog'>
+                    <p className="text-right text-sm font-light cursor-pointer">See More {'->'}</p>
+                </Link>
             </div>
 
             <div className="w-full px-3 mt-4 md:px-24">
-                <p className="mb-4">Events</p>
+                <p className=" md:text-xl font-bold mb-4">Events</p>
                 <div className="flex w-full gap-4 overflow-hidden">
                 {
                     eventData && eventData.map((item, index) => {
@@ -118,17 +121,19 @@ export default function KomunitasPage() {
                     })
                 }    
                 </div>
-                <p className="text-right text-sm font-light cursor-pointer">See More {'->'}</p>
+                <Link to='/listEvent'>
+                    <p className="text-right text-sm font-light cursor-pointer">See More {'->'}</p>
+                </Link>
             </div>
 
             <div className="w-full px-3 mt-6 md:px-24">
-                <p className="mb-4">Latest Blog</p>   
+                <p className="md:text-xl font-bold mb-4">Latest Blog</p>   
                 {
                     blogData && blogData.map((item, index) => {
                         if(index === (blogData.length - 1) || index === (blogData.length - 2)){
                             return(
                                 <div className="w-full flex mb-4 gap-4 md:gap-10 bg-gray-200 rounded-md group">
-                                    <div className="flex-shrink flex-grow basis-2/3 lg:basis-auto p-2 md:flex md:flex-col md:justify-between md:p-5">
+                                    <div className="flex-shrink flex-grow basis-2/3 lg:basis-3/4 p-2 md:flex md:flex-col md:justify-between md:p-5">
                                         <h1 className="font-bold leading-6">{item.title}</h1>
                                         <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis" dangerouslySetInnerHTML={{__html: item.desc }}></p>
                                         <div>
@@ -136,7 +141,7 @@ export default function KomunitasPage() {
                                             <p className="text-xs">{item.date}</p>
                                         </div>
                                     </div>
-                                    <div className="flex-shrink flex-grow basis-1/3 lg:basis-auto lg:max-h-44 overflow-hidden">
+                                    <div className="flex-shrink flex-grow basis-1/3 lg:basis-1/4 lg:max-h-44 overflow-hidden">
                                         <img src={item.image} className="rounded-r-md h-full object-cover w-full group-hover:scale-105 ease-in-out duration-200"></img>
                                     </div>
                                 </div>
@@ -146,7 +151,9 @@ export default function KomunitasPage() {
                         }
                     })
                 }
-                <p className="text-right text-sm font-light cursor-pointer">See More {'->'}</p>
+                <Link to='/listBlog'>
+                    <p className="text-right text-sm font-light cursor-pointer">See More {'->'}</p>
+                </Link>
             </div>
             <Footer/>
         </>
