@@ -1,9 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {useParams} from "react-router-dom";
 import '../style/index.css';
 import Navbar from "../components/navbar";
+import {useState, useEffect} from "react";
 
 export default function DestinationPage() {
+    const {id} = useParams();
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/destination/'+id+'.json')
+        .then((response) => response.json())
+        .then((json) => setData(json))
+        .then(console.log(data))
+    }, []);
+
     return(
         <>
             <Navbar/>
