@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import '../style/index.css';
 import Navbar from "../components/navbar";
 import {  useRef, useEffect, useState } from "react";
+import Footer from "../components/footer";
 
 export default function WisataPage() {
     let count = 1; //:D
@@ -297,6 +298,7 @@ export default function WisataPage() {
                     )
                 }
             </div>
+            <Footer/>
         </>
     );
 }

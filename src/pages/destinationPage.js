@@ -3,6 +3,7 @@ import {useParams, Link} from "react-router-dom";
 import '../style/index.css';
 import {useRef, useEffect, useState} from 'react';
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 
 export default function DestinationPage() {
@@ -125,6 +126,7 @@ export default function DestinationPage() {
                     )
                 }
             </div>
+            <Footer/>
         </>      
     );
 }

@@ -3,6 +3,7 @@ import Navbar from "../components/navbar";
 import '../style/index.css';
 import {useRef, useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
+import Footer from "../components/footer";
 
 export default function HomePage() {
     let count = 1; //:D
@@ -213,6 +214,7 @@ export default function HomePage() {
                     <p className="text-right text-sm font-light cursor-pointer">See More {'->'}</p>
                     </Link>
                 </div>
+                <Footer/>
     
             </>
         ) 
