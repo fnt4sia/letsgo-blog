@@ -99,8 +99,8 @@ export default function Navbar () {
                     )}
   
                 </li>
-                <li className='cursor-pointer'>Komunitas</li>
-                <li className='cursor-pointer'>Akun</li>
+                <Link to='/community'><li className='cursor-pointer'>Komunitas</li></Link>
+                <Link to='/account'><li className='cursor-pointer'>Akun</li></Link>
             </ul>
         </nav>
     );
