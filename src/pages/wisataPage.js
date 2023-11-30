@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import '../style/index.css';
 import Navbar from "../components/navbar";
-import { useState, useRef, useEffect } from "react";
+import {  useRef, useEffect } from "react";
 
 export default function WisataPage() {
     let count = 1; //:D

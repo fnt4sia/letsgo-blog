@@ -102,16 +102,17 @@ export default function AddDestinationPage(){
                                 <p className="text-left font-bold">Description</p>
                                 <ReactQuill theme="snow" onChange={changeDesc} className="ql-container ql-snow"/>
                             </div>
-                            <div className="md:flex justify-evenly">
-                                <div className="flex flex-col mt-5 md:mt-0">
-                                    <p className="text-left font-bold">Image</p>
-                                    <label className={`w-full flex flex-col items-center px-4 py-6 ${file === null ? 'bg-white text-blue' : 'bg-blue-300 text-white'} rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer`}>
-                                        <FaFile/>
-                                        <span className="mt-2 text-base leading-normal">Upload Your File</span>
+                            <div className="flex flex-col mt-5 md:mt-0 w-4/5 m-auto ">
+                                <p className="text-left font-bold">Image</p>
+                                <label className={`w-full flex flex-col items-center px-4 py-2 ${file === null ? 'bg-white text-blue' : 'bg-blue-300 text-white'} rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer`}>
+                                    <FaFile/>
+                                    <span className="mt-2 text-base leading-normal">Upload Your File</span>
                                     <input type='file' className="hidden" onChange={changeFile} multiple/>
                                 </label>
-                                </div>
-                                <div className="md:px-8 mt-10 md:mt-0">
+                            </div>
+
+
+                                <div className="md:px-8 mt-10 md:mt-0 m-auto w-4/5">
                                     <p className="text-left font-bold">Tag</p>
                                     {arrayCheckbox.map((item, index) => (
                                         <div>
@@ -120,7 +121,7 @@ export default function AddDestinationPage(){
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            
                             {
                                 errorMessage ? (
                                     <p className="text-red-500 text-center">{errorMessage}</p>
