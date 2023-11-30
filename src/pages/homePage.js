@@ -152,7 +152,7 @@ export default function HomePage() {
                                     <div className="w-full flex mb-4 gap-4 md:gap-10 bg-gray-200 rounded-md group">
                                         <div className="flex-shrink flex-grow basis-2/3 lg:basis-3/4 p-2 md:flex md:flex-col md:justify-between md:p-5">
                                             <h1 className="font-bold leading-6">{item.title}</h1>
-                                            <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis">{item.desc}</p>
+                                            <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis" dangerouslySetInnerHTML={{__html: item.desc }}></p>
                                             <div>
                                                 <p className="text-xs">{item.user}</p>
                                                 <p className="text-xs">{item.date}</p>

@@ -59,10 +59,10 @@ export default function ListBlogPage(){
                         <div className="w-full lg:w-2/5 grow flex gap-4 md:gap-10 bg-gray-200 rounded-md group">
                             <div className="flex-shrink flex-grow basis-2/3 p-2 flex flex-col gap-3 md:justify-between md:p-5">
                                 <h1 className="font-bold leading-6 sm:line-clamp-3 sm:text-ellipsis">{item.title}</h1>
-                                <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis ">{item.description}</p>
+                                <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis" dangerouslySetInnerHTML={{__html: item.desc }}></p>
                                 <div>
                                     <p className="text-xs">{item.author}</p>
-                                    <p className="text-xs">{item.location} | {item.date}</p>
+                                    <p className="text-xs">{item.date}</p>
                                 </div>
                             </div>
                             <div className="flex-shrink flex-grow basis-1/3 sm:max-h-52 overflow-hidden">

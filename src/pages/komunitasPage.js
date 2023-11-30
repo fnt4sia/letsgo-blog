@@ -71,7 +71,7 @@ export default function KomunitasPage() {
                                 <div className="w-full flex mb-4 gap-4 md:gap-10 bg-gray-200 rounded-md group">
                                     <div className="flex-shrink flex-grow basis-2/3 lg:basis-auto p-2 md:flex md:flex-col md:justify-between md:p-5">
                                         <h1 className="font-bold leading-6">{item.title}</h1>
-                                        <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis">{item.desc}</p>
+                                        <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis" dangerouslySetInnerHTML={{__html: item.desc }}></p>
                                         <div>
                                             <p className="text-xs">{item.user}</p>
                                             <p className="text-xs">{item.date}</p>
@@ -101,17 +101,16 @@ export default function KomunitasPage() {
                             return(
                                 <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
                                     <div className="w-full h-28">
-                                        <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
+                                        <img src={item.image} className="object-cover h-full w-full rounded-t-md"></img>
                                     </div>
                                     <div className="w-full p-3 flex flex-col gap-1">
-                                        <h1 className="font-bold">Konser Seventeen asdadas asdadasd a asdada</h1>
+                                        <h1 className="font-bold">{item.title}</h1>
                                         <hr></hr>
                                         <div>
-                                        <p className="text-sm font-thin">Yogyakarta </p>
-                                        <p className="text-sm font-thin">21 November 2023</p>
+                                        <p className="text-sm font-thin" dangerouslySetInnerHTML={{__html: item.desc }}></p>
                                         </div>
                                         <hr></hr>
-                                        <p className="text-sm font-mediumt">By : Fitra Ramadhan</p>
+                                        <p className="text-sm font-mediumt">{`By : ${item.user}`}</p>
                                     </div>
                                 </div>
                             )
@@ -131,7 +130,7 @@ export default function KomunitasPage() {
                                 <div className="w-full flex mb-4 gap-4 md:gap-10 bg-gray-200 rounded-md group">
                                     <div className="flex-shrink flex-grow basis-2/3 lg:basis-auto p-2 md:flex md:flex-col md:justify-between md:p-5">
                                         <h1 className="font-bold leading-6">{item.title}</h1>
-                                        <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis">{item.desc}</p>
+                                        <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis" dangerouslySetInnerHTML={{__html: item.desc }}></p>
                                         <div>
                                             <p className="text-xs">{item.user}</p>
                                             <p className="text-xs">{item.date}</p>
