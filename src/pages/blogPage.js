@@ -36,7 +36,7 @@ export default function BlogPage(){
                     </div>
                 </div>
                 <hr className="mt-4"></hr>
-                <div className="mt-4 text-justify" dangerouslySetInnerHTML={{__html : data.desc}}></div>
+                <div className="mt-4 text-justify blog" dangerouslySetInnerHTML={{__html : data.desc}}></div>
 
             </div>
             <Footer/>

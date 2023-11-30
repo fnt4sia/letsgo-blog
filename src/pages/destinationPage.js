@@ -86,7 +86,7 @@ export default function DestinationPage() {
 
             <div class="flex md:px-24 md:mt-5 flex-1 gap-2 md:flex-col lg:flex-row">
                 <div class="md:w-full">
-                    <p class="p-3 text-justify indent-8" dangerouslySetInnerHTML={{__html : data.desc}}>
+                    <p class="p-3 text-justify indent-8 blog" dangerouslySetInnerHTML={{__html : data.desc}}>
 
                     </p>
                 </div>
