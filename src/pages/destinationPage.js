@@ -9,7 +9,6 @@ export default function DestinationPage() {
             <Navbar/>
             <div class="h-72 bg-black relative grid place-items-center overflow-x-hidden -z-10">
                 <div id="slider" class="slider absolute h-full w-full flex ease-in-out">
-                    just spam image here
                     <img src="images/Candi-Prambanan-3.jpg" class="h-full min-w-full object-cover opacity-50 "></img>
                     <img src="images/download.jpg" class="h-full min-w-full object-cover opacity-50"></img>
                     <img src="images/fakta-menarik-kaws-di-candi-pram-20230822083545.jpg" class="h-full min-w-full object-cover opacity-50"></img>
@@ -53,14 +52,10 @@ export default function DestinationPage() {
             <div class="tags flex flex-nowrap md:flex-wrap overflow-x-auto gap-5 p-3 md:gap-12 md:px-24">
 
                 <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    change src
                     <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
                     <hr class="mt-2"></hr>
-                    change title
                     <h3 class="text-center font-bold">Prambanan</h3>
                     <hr></hr>
-
-                    edit/add tags
                     <div class="tags flex overflow-x-auto gap-1 p-1">
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>

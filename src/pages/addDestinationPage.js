@@ -14,7 +14,7 @@ export default function AddDestinationPage(){
             setValue(value + 1);
         }
     }
-    const arrayCheckbox = ["Wisata Alam", "Wisata Kota", "Wisata Kuliner", "Wisata Sejarah", "Wisata Religi", "Wisata Edukasi"];
+    const arrayCheckbox = ["Wisata Alam", "Wisata Kota", "Wisata Sejarah", "Wisata Religi", "Wisata Edukasi", "Event Unik"];
     return(
         <>
           <Navbar/>
