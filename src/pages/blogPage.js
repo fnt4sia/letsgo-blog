@@ -5,6 +5,7 @@ import Footer from "../components/footer";
 import {FaUser, FaCalendar} from "react-icons/fa";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from 'react';
+import '../style/additional.css';
 
 export default function BlogPage(){
     const {id} = useParams();
