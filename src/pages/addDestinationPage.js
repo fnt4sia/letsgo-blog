@@ -4,57 +4,134 @@ import Navbar from "../components/navbar";
 import {useState} from "react";
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
+import { FaFile } from "react-icons/fa";
+import {initializeApp} from "firebase/app";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
 
 export default function AddDestinationPage(){
-    const [value, setValue] = useState(0);
-    const addImage = () => {
-        if(value === 5){
-            console.log("Max 6 images");
+    const [title, setTitle] = useState('');
+    const [desc, setDesc] = useState('');
+    const [file, setFile] = useState([]);;
+    const [tag, setTag] = useState([]);
+    const [errorMessage, setErrorMessage] = useState("");
+    
+    const firebaseConfig = {
+        apiKey: "AIzaSyBAKJHnv6Xj8t2AVS1-NQQ45_irjJndgEY",
+        authDomain: "letsgo-blog.firebaseapp.com",
+        databaseURL: "https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "letsgo-blog",
+        storageBucket: "letsgo-blog.appspot.com",
+        messagingSenderId: "695890164378",
+        appId: "1:695890164378:web:75605a365fca7b46eefd23"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage();
+
+    async function submitForm(e){
+        e.preventDefault();
+        if(title === "" || desc === "" || tag.length === 0) {
+            setErrorMessage("Please Fill In All Fields");
+            return;
+        }else if(file.length < 6){
+            setErrorMessage("Please Upload 6 Images");
+            return;
         }else{
-            setValue(value + 1);
+            const urls = [];
+            for (const item of file) {
+                const storageRef = ref(storage, `destination/${item.name}`);
+                const snapshot = await uploadBytes(storageRef, item);
+                const url = await getDownloadURL(snapshot.ref);
+                urls.push(url);
+            }
+
+            fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/destination.json', {
+                method: 'POST',
+                body: JSON.stringify({
+                    title: title,
+                    desc: desc,
+                    image: urls,
+                    tag: tag,
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }}
+            )
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                window.location.href = "/";
+            })
         }
     }
+
+    
+    const changeTitle = (e) => {
+        setTitle(e.target.value);
+    }
+    const changeDesc = (e) => {
+        setDesc(e);
+    }
+    const changeFile = (e) => {
+        setFile(e.target.files);
+        console.log(file);
+    };
+    const changeTag = (e) => {
+        setTag(oldTag => [...oldTag, e.target.value]);
+        console.log(tag);
+    }
     const arrayCheckbox = ["Wisata Alam", "Wisata Kota", "Wisata Sejarah", "Wisata Religi", "Wisata Edukasi", "Event Unik"];
-    return(
-        <>
-          <Navbar/>
-            <div className="w-full px-4 mt-8 md:px-32">
-                <div className="w-full flex flex-col items-center">
-                    <h1 className="text-3xl font-bold text-slate-400 py-6">Tambah Destination</h1>
-                    <form className="w-full relative flex flex-col gap-4">
-                        <div>
-                            <p className="text-left font-bold">Title</p>
-                            <input type="text" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></input>   
-                        </div>
-                        <div>
-                            <p className="text-left font-bold">Description</p>
-                            <ReactQuill theme="snow" value={value} className="ql-container ql-snow"/>
-                        </div>
-                        <div className="md:flex justify-evenly">
-                            <div className="flex flex-col mt-5 md:mt-0">
-                                <p className="text-left font-bold">Image</p>
-                                {
-                                    Array.from({ length: value }).map((_, index) => (
-                                        <input key={index} type="file" className="w-full mt-2" />
-                                        ))
-                                    }
-                                <input type="file" className="w-full mt-2"></input>
-                                <p className="mt-3 w-fit p-0.5 rounded-md bg-blue-300 grid place-items-center cursor-pointer text-sm" onClick={addImage}>Add More Image</p>
+
+    if(sessionStorage.getItem("username") === null){
+        window.location.href = "/login";
+        return null;
+    }else{
+        return(
+            <>
+              <Navbar/>
+                <div className="w-full px-4 mt-8 md:px-32">
+                    <div className="w-full flex flex-col items-center">
+                        <h1 className="text-3xl font-bold text-slate-400 py-6">Tambah Destination</h1>
+                        <form onSubmit={submitForm} className="w-full relative flex flex-col gap-4">
+                            <div>
+                                <p className="text-left font-bold">Title</p>
+                                <input type="text" onChange={changeTitle} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></input>   
                             </div>
-                            <div className="md:px-8 mt-10 md:mt-0">
-                                <p className="text-left font-bold">Tag</p>
-                                {arrayCheckbox.map((item, index) => (
-                                    <div>
-                                        <input type="checkbox" value={item} key={index} className="mr-2"/>
-                                        <label>{item}</label>
-                                    </div>
-                                ))}
+                            <div>
+                                <p className="text-left font-bold">Description</p>
+                                <ReactQuill theme="snow" onChange={changeDesc} className="ql-container ql-snow"/>
                             </div>
-                        </div>
-                        <button type="submit" className="py-2 px-8 bg-blue-500 self-center text-white rounded-md mb-2">Submit</button>
-                    </form>
+                            <div className="md:flex justify-evenly">
+                                <div className="flex flex-col mt-5 md:mt-0">
+                                    <p className="text-left font-bold">Image</p>
+                                    <label className={`w-full flex flex-col items-center px-4 py-6 ${file === null ? 'bg-white text-blue' : 'bg-blue-300 text-white'} rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer`}>
+                                        <FaFile/>
+                                        <span className="mt-2 text-base leading-normal">Upload Your File</span>
+                                    <input type='file' className="hidden" onChange={changeFile} multiple/>
+                                </label>
+                                </div>
+                                <div className="md:px-8 mt-10 md:mt-0">
+                                    <p className="text-left font-bold">Tag</p>
+                                    {arrayCheckbox.map((item, index) => (
+                                        <div>
+                                            <input type="checkbox" value={item} key={index} className="mr-2" onChange={changeTag}/>
+                                            <label>{item}</label>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            {
+                                errorMessage ? (
+                                    <p className="text-red-500 text-center">{errorMessage}</p>
+                                ) : (null)
+                            }
+                            <button type="submit" className="py-2 px-8 bg-blue-500 self-center text-white rounded-md mb-2">Submit</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </>
-    );
+            </>
+        );
+    }
+    
 }
