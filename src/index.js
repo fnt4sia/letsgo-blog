@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import LoginPage from './pages/loginPage';
 import RegisterPage from './pages/registerPage';
 import HomePage from './pages/homePage';
+import WisataPage from './pages/wisataPage';
+import DestinationPage from './pages/destinationPage';
+import KomunitasPage from './pages/komunitasPage';
 
 import {
   createBrowserRouter,
@@ -21,6 +24,18 @@ const router = createBrowserRouter([
   {
     path:"/register",
     element:<RegisterPage/>
+  },
+  {
+    path: "/wisata",
+    element:<WisataPage/>
+  },
+  {
+    path: "/destination",
+    element:<DestinationPage/>
+  },
+  {
+    path: "/komunitas",
+    element: <KomunitasPage/>
   }
 ])
 
