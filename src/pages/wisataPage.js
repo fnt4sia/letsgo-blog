@@ -273,31 +273,6 @@ export default function WisataPage() {
             <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
             </Link>
-
-            <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="event">Event Menarik</h3>
-            <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
-                {
-                    dataEvent && shuffle([...dataEvent]).map((item, index) => {
-                        if(index < 5) return (
-                        <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
-                            <div className="w-full h-28">
-                                <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
-                            </div>
-                            <div className="w-full p-3 flex flex-col gap-1">
-                                <h1 className="font-bold">{item.title}</h1>
-                                <hr></hr>
-                                <div>
-                                <p className="text-sm font-thin" dangerouslySetInnerHTML={{__html: item.desc }}></p>
-                                </div>
-                                <hr></hr>
-                                <p className="text-sm font-light">{`By :  ${item.user}`}</p>
-                            </div>
-                        </div>
-                        )
-                    }
-                    )
-                }
-            </div>
             <Footer/>
         </>
     );

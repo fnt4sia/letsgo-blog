@@ -194,7 +194,7 @@ export default function HomePage() {
                                     if(index < 5) return(
                                     <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
                                         <div className="w-full h-28">
-                                            <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
+                                            <img src={item.image} className="object-cover h-full w-full rounded-t-md"></img>
                                         </div>
                                         <div className="w-full p-3 flex flex-col gap-1">
                                             <h1 className="font-bold">{item.title}</h1>
