@@ -5,9 +5,13 @@ import Footer from "../components/footer";
 import { VscAccount } from "react-icons/vsc";
 
 export default function AccountPage(){
-    return(
-        <>
-            <Navbar/>
+    if(sessionStorage.getItem("username") === null){
+        window.location.href = "/login";
+        return null;    
+    }else{
+        return(
+            <>
+                <Navbar/>
                 <div className="mt-10 p-10 flex flex-col">
                     <div className="flex gap-10 items-center lg:self-center">
                         <div className="">
@@ -67,7 +71,9 @@ export default function AccountPage(){
                     </div>
 
                 </div>
-            <Footer/>
-        </>
-    )
+                <Footer/>
+            </>
+        )
+    }
+
 }
