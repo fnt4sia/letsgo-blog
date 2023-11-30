@@ -49,7 +49,7 @@ const router = createBrowserRouter([
     element: <KomunitasPage/>
   },
   {
-    path: "/account",
+    path: "/account/:name",
     element: <AccountPage/>
   },
   {
