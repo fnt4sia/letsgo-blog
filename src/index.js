@@ -15,6 +15,7 @@ import SearchPage from './pages/searchPage';
 import LogOut from './services/logout';
 import ListEventPage from './pages/listEventPage';
 import AddeventPage from './pages/addEventPage';
+import TestPage from './pages/testPage';
 
 import {
   createBrowserRouter,
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
   {
     path: "/addevent",
     element: <AddeventPage/>
+  },
+  {
+    path: "/test",
+    element: <TestPage/>
   },
   {
     path: "/listEvent",
