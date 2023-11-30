@@ -41,7 +41,7 @@ const router = createBrowserRouter([
     element:<WisataPage/>
   },
   {
-    path: "/destination/:id?",
+    path: "/destination/:id",
     element:<DestinationPage/>
   },
   {
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
     element: <ListDestinationPage/>
   },
   {
-    path:"/blog/:id?",
+    path:"/blog/:id`",
     element: <BlogPage/>
   },
   {
