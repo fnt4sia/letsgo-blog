@@ -1,18 +1,26 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import '../style/index.css';
+import {useRef, useEffect} from 'react';
 
 export default function HomePage() {
-    let count = 1 //:D
-    const slider = document.querySelector("#slider")
-    slider.appendChild(slider.firstElementChild.cloneNode(true))
+    let count = 1; //:D
+    const sliderRef = useRef(null);
 
-    setInterval(()=>{
-        slider.animate(
-        { transform: `translateX(-${(count%slider.childElementCount)*100}%)` },
-        { duration: count%slider.childElementCount == 0? 0: 500, fill: "forwards"})
-        count++;
-    },3000)
+    useEffect(() => {
+        const slider = sliderRef.current;
+        slider.appendChild(slider.firstElementChild.cloneNode(true));
+
+        const interval = setInterval(() => {
+            slider.animate(
+                { transform: `translateX(-${(count % slider.childElementCount) * 100}%)` },
+                { duration: count % slider.childElementCount === 0 ? 0 : 500, fill: "forwards" }
+            );
+            count++;
+        }, 3000);
+
+        return () => clearInterval(interval); // Clean up on component unmount
+    }, []);
 
     return(
         <>

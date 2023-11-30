@@ -2,23 +2,31 @@ import React from "react";
 import { Link } from "react-router-dom";
 import '../style/index.css';
 import Navbar from "../components/navbar";
+import { useState, useRef, useEffect } from "react";
 
 export default function WisataPage() {
-    let count = 1 //:D
-    const slider = document.querySelector("#slider")
-    slider.appendChild(slider.firstElementChild.cloneNode(true))
+    let count = 1; //:D
+    const sliderRef = useRef(null);
 
-    setInterval(()=>{
-        slider.animate(
-        { transform: `translateX(-${(count%slider.childElementCount)*100}%)` },
-        { duration: count%slider.childElementCount == 0? 0: 500, fill: "forwards"})
-        count++;
-    },3000)
+    useEffect(() => {
+        const slider = sliderRef.current;
+        slider.appendChild(slider.firstElementChild.cloneNode(true));
+
+        const interval = setInterval(() => {
+            slider.animate(
+                { transform: `translateX(-${(count % slider.childElementCount) * 100}%)` },
+                { duration: count % slider.childElementCount === 0 ? 0 : 500, fill: "forwards" }
+            );
+            count++;
+        }, 3000);
+
+        return () => clearInterval(interval); // Clean up on component unmount
+    }, []);
     return(
         <>
             <Navbar/><Navbar/>
             <div class="h-72 mt-10  bg-black relative grid place-items-center overflow-x-hidden -z-10">
-                <div id="slider" class="slider absolute h-full w-full flex ease-in-out">
+                <div id="slider" ref={sliderRef} class="slider absolute h-full w-full flex ease-in-out">
                     <img src="https://blog-images.reddoorz.com/uploads/image/file/4511/prambanan-2010-2-of-2.jpg" class="h-full min-w-full object-cover opacity-50 "></img>
                     <img src="https://www.jababekamorotai.com/wp-content/uploads/2019/12/air-terjun11.jpg" class="h-full min-w-full object-cover opacity-50"></img>
                     <img src="https://elearn.id/wp-content/uploads/2018/01/Taman-Pintar-Sumbre-afiaanwas-blogspotcom.jpg" class="h-full min-w-full object-cover opacity-50"></img>
