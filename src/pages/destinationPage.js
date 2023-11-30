@@ -6,32 +6,10 @@ import Navbar from "../components/navbar";
 import {useState, useEffect} from "react";
 
 export default function DestinationPage() {
-    const {id} = useParams();
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/destination/'+id+'.json')
-        .then((response) => response.json())
-        .then((json) => setData(json))
-        .then(console.log(data))
-    }, []);
-
     let count = 1; //:D
     const sliderRef = useRef(null);
-    const [destinationData, setDestinationData] = useState([]);
-    const [blogData, setBlogData] = useState([]);
-    const [eventData, setEventData] = useState([]);
-    const [isLoadingDestination, setIsLoadingDestination] = useState(true);
-    const [isLoadingBlog, setIsLoadingBlog] = useState(true);
-    const [isLoadingEvent, setIsLoadingEvent] = useState(true);
-
-    function shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
+    const {id} = useParams();
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         const slider = sliderRef.current;
@@ -49,17 +27,13 @@ export default function DestinationPage() {
     }, []);
 
     useEffect(() => {
-        fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/destination.json')
+        fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/destination/'+id+'.json')
         .then((response) => response.json())
-        .then((data) => {
-            const destinationArray = Object.keys(data).map((key) => ({
-                id: key,
-                ...data[key]
-            }));
-            setDestinationData(destinationArray);
-            setIsLoadingDestination(false)
+        .then((json) {
+            setData(json);
+            console.log(data)
         })
-    }, [])
+    }, []);
 
     return(
         <>
