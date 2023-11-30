@@ -17,7 +17,7 @@ export default function Navbar () {
     }
 
     return(
-        <nav className="fixed top-0 w-screen flex justify-between items-center z-50 text-white py-3 px-6" style={{backgroundColor: '#232027'}}>
+        <nav className="fixed top-0 w-screen flex justify-between items-center z-50 text-white py-2 px-6" style={{backgroundColor: '#232027'}}>
             <Link to={'/'}><h1 className="self-center text-lg font-semibold cursor-pointer">LetsGo Blog</h1></Link>
             <ul className='sm:h-full flex items-center text-base font-semibold sm:py-0 gap-2 justify-center sm:gap-8'>
                 <li className='relative h-full grid place-items-center'>

@@ -60,7 +60,7 @@ export default function AccountPage(){
                         <div className="flex flex-col">
                             <h3 className="text-lg font-bold">{name}</h3>
                             {
-                                localStorage.getItem('username') === name ? (
+                                sessionStorage.getItem('username') === name ? (
                                     <Link to='/logout'><button className="bg-gray-200 w-fit p-0.5 py-2 px-4 rounded-md mt-1">logout</button></Link>
                                 ) : (
                                     <button className="bg-gray-200 w-fit p-0.5 py-2 px-4 rounded-md mt-1">follow</button>

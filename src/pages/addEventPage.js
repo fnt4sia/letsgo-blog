@@ -71,7 +71,7 @@ export default function AddEventPage(){
     }
 
     if(sessionStorage.getItem("username") === null || sessionStorage.getItem("username") !== "fitra"){
-        window.location.href = "/login";
+        window.location.href = "/";
         return null;
     }else{
         return(
