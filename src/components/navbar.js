@@ -17,7 +17,7 @@ export default function Navbar () {
     }
 
     return(
-        <nav className="fixed top-0 w-screen h-10 flex justify-between items-center bg-slate-400 z-50">
+        <nav className="fixed top-0 w-screen h-10 flex justify-between items-center bg-gray-400 z-50">
             <Link to={'/'}><h1 className="self-center py-2 px-6 text-lg font-semibold cursor-pointer">LetsGo Blog</h1></Link>
             <p className='sm:hidden py-2 px-6 cursor-pointer z-50' onClick={handleClick}>KLIK</p>
             {clicked ? (
