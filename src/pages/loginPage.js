@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function LoginPage() {
+    console.log(sessionStorage.getItem("username"));    
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordLook, setPasswordLook] = useState(true);

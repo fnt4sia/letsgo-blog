@@ -45,7 +45,7 @@ export default function Navbar () {
                 </li>
                 <Link to='/community'><li className='cursor-pointer'>Komunitas</li></Link>
                 {
-                        localStorage.getItem('username') ? (<Link to={`/account/${localStorage.getItem('username')}`}><li className='py-2 cursor-pointer'>Akun</li></Link>) : (<Link to='/login'><li className='py-2 cursor-pointer'>Akun</li></Link>)
+                        sessionStorage.getItem('username') ? (<Link to={`/account/${sessionStorage.getItem('username')}`}><li className='py-2 cursor-pointer'>Akun</li></Link>) : (<Link to='/login'><li className='py-2 cursor-pointer'>Akun</li></Link>)
                     }
             </ul>
         </nav>
