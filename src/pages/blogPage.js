@@ -55,7 +55,9 @@ export default function BlogPage(){
                 {
                     (sessionStorage.getItem("username") === data.user) ? (
                         <div className="flex justify-end mt-4 gap-4">
-                            <Link To={`edit/${data.id}`}><button className="p-2 px-4 bg-blue-500 rounded-md text-right text-white">Edit</button></Link>
+                        <Link to={`/edit/${id}`}>
+                            <button className="p-2 px-4 bg-blue-500 rounded-md text-right text-white">Edit</button>
+                        </Link>
                             <button className="p-2 px-4 bg-red-500 rounded-md text-right text-white" onClick={deleteBlog}>Hapus</button>
                         </div>
                     ) : (
