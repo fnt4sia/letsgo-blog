@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "../components/navbar";
 import '../style/index.css';
 import {useRef, useEffect, useState} from 'react';
-import {useRef, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
 export default function HomePage() {
