@@ -138,7 +138,7 @@ export default function HomePage() {
                     ) : (
                         blogData && blogData.map((item) =>(
                             <div className="w-full flex mb-4 gap-4 md:gap-10 bg-gray-200 rounded-md group">
-                                <div className="flex-shrink flex-grow basis-2/3 lg:basis-auto p-2 md:flex md:flex-col md:justify-between md:p-5">
+                                <div className="flex-shrink flex-grow basis-2/3 p-2 flex flex-col gap-3 md:justify-between md:p-5">
                                     <h1 className="font-bold leading-6">{item.title}</h1>
                                     <p className="hidden font-normal text-xs sm:line-clamp-3 sm:text-ellipsis" dangerouslySetInnerHTML={{ __html: item.desc }}></p>
                                     <div>
@@ -146,7 +146,7 @@ export default function HomePage() {
                                         <p className="text-xs">{item.date}</p>
                                     </div>
                                 </div>
-                                <div className="flex-shrink flex-grow basis-1/3 lg:basis-auto lg:max-h-44 overflow-hidden">
+                                <div className="flex-shrink flex-grow basis-1/3 sm:max-h-52 overflow-hidden">
                                     <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03774-0/d41586-023-03774-0_26372138.jpg?as=webp" className="rounded-r-md h-full object-cover w-full group-hover:scale-105 ease-in-out duration-200"></img>
                                 </div>
                             </div>

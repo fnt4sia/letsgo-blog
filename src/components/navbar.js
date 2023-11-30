@@ -17,7 +17,7 @@ export default function Navbar () {
     }
 
     return(
-        <nav className="fixed top-0 w-screen h-10 flex justify-between items-center bg-gray-400 z-50">
+        <nav className="fixed top-0 w-screen h-10 flex justify-between items-center z-50 text-white" style={{backgroundColor: '#232027'}}>
             <Link to={'/'}><h1 className="self-center py-2 px-6 text-lg font-semibold cursor-pointer">LetsGo Blog</h1></Link>
             <p className='sm:hidden py-2 px-6 cursor-pointer z-50' onClick={handleClick}>KLIK</p>
             {clicked ? (
@@ -97,7 +97,7 @@ export default function Navbar () {
                 <li className='relative h-full grid place-items-center'>
                     <p onClick={handleClickWisata} className="z-50 cursor-pointer">Wisata</p>
                     {wisataDrop ? (                  
-                    <ul className='text-center absolute top-full text-sm opacity-1 duration-300 cursor-pointer translate-y-0 -z-10 px-3 bg-gray-200'>
+                    <ul className='text-center absolute top-full text-sm opacity-1 duration-300 cursor-pointer translate-y-0 -z-10 px-3' style={{backgroundColor: '#232027'}}>
                         <a href='/wisata#alam'><li className='py-1 font-light cursor-pointer'>alam</li></a>
                         <a href='/wisata#kota'><li className='py-1 font-light cursor-pointer'>kota</li></a>
                         <a href='/wisata#sejarah'><li className='py-1 font-light cursor-pointer'>sejarah</li></a>
@@ -106,7 +106,7 @@ export default function Navbar () {
                         <a href='/wisata#event'><li className='py-1 font-light cursor-pointer'>event</li></a>
                     </ul>) 
                     : (
-                        <ul className='text-center absolute top-full text-sm opacity-0 duration-300 -translate-y-1/2 -z-10 px-3  bg-gray-200'>
+                        <ul className='text-center absolute top-full text-sm opacity-0 duration-300 -translate-y-1/2 -z-10 px-3 ' style={{backgroundColor: '#232027'}}>
                         <a href='/wisata#alam'><li className='py-1 font-light cursor-pointer'>alam</li></a>
                         <a href='/wisata#kota'><li className='py-1 font-light cursor-pointer'>kota</li></a>
                         <a href='/wisata#sejarah'><li className='py-1 font-light cursor-pointer'>sejarah</li></a>

@@ -31,7 +31,7 @@ export default function listBlogPage(){
                             <p className="text-xs">Yogyakarta | 26 November 2023</p>
                         </div>
                     </div>
-                    <div className="flex-shrink flex-grow basis-1/3 sm:max-h-56 overflow-hidden">
+                    <div className="flex-shrink flex-grow basis-1/3 sm:max-h-52 overflow-hidden">
                         <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03774-0/d41586-023-03774-0_26372138.jpg?as=webp" className="rounded-r-md h-full object-cover w-full group-hover:scale-105 ease-in-out duration-200"></img>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ export default function listBlogPage(){
                             <p className="text-xs">Yogyakarta | 26 November 2023</p>
                         </div>
                     </div>
-                    <div className="flex-shrink flex-grow basis-1/3 sm:max-h-56 overflow-hidden">
+                    <div className="flex-shrink flex-grow basis-1/3 sm:max-h-52 overflow-hidden">
                         <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03774-0/d41586-023-03774-0_26372138.jpg?as=webp" className="rounded-r-md h-full object-cover w-full group-hover:scale-105 ease-in-out duration-200"></img>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ export default function listBlogPage(){
                             <p className="text-xs">Yogyakarta | 26 November 2023</p>
                         </div>
                     </div>
-                    <div className="flex-shrink flex-grow basis-1/3 sm:max-h-56 overflow-hidden">
+                    <div className="flex-shrink flex-grow basis-1/3 sm:max-h-52 overflow-hidden">
                         <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03774-0/d41586-023-03774-0_26372138.jpg?as=webp" className="rounded-r-md h-full object-cover w-full group-hover:scale-105 ease-in-out duration-200"></img>
                     </div>
                 </div>
