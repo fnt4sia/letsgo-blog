@@ -38,7 +38,7 @@ export default function ListBlogPage(){
                         if (index === 0) {
                             return (
                                 <Link to={`/blog/${item.id}`} className="b w-full h-full bg-black relative group">
-                                    <div className="w-full h-2/3 overflow-hidden">      
+                                    <div className="w-full h-2/3 overflow-hidden bg-black">      
                                         <img className="w-full object-cover aspect-video max-h-96 group-hover:scale-105 group-hover:opacity-70 ease-in-out duration-200" src={item.image}></img>
                                     </div>
                                     <h3 className="absolute w-full  text-lg font-bold px-3 md:p-5 md:px-7 bottom-3 text-white md:text-2xl text-center ease-in-out duration-200 group-hover:bottom-1/2 group-hover:translate-y-1/2 group-hover:text-2xl group-hover:md:text-4xl">{item.title}</h3>
