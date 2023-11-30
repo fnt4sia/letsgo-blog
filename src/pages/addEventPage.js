@@ -39,7 +39,7 @@ export default function AddEventPage(){
             const url = await getDownloadURL(snapshot.ref);
             console.log('Uploaded a blob or file!', url);
 
-            fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/blog.json', {
+            fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/event.json', {
                 method: 'POST',
                 body: JSON.stringify({
                     title: title,

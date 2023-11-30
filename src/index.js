@@ -13,9 +13,8 @@ import ListDestinationPage from './pages/listDestinationPage';
 import BlogPage from './pages/blogPage';
 import SearchPage from './pages/searchPage';
 import LogOut from './services/logout';
-import AddeventPage from './pages/addEvent';
 import ListEventPage from './pages/listEventPage';
-
+import AddeventPage from './pages/addEventPage';
 
 import {
   createBrowserRouter,
