@@ -85,7 +85,7 @@ export default function AddDestinationPage(){
     const arrayCheckbox = ["Wisata Alam", "Wisata Kota", "Wisata Sejarah", "Wisata Religi", "Wisata Edukasi", "Event Unik"];
 
     if(sessionStorage.getItem("username") === null || sessionStorage.getItem("username") !== "fitra"){
-        window.location.href = "/login";
+        window.location.href = "/";
         return null;
     }else{
         return(

@@ -54,9 +54,13 @@ export default function ListDestinationPage(){
                 </div>
             </div>
 
-            <Link to='/addDestination'>
-            <div class="fixed bottom-5 md:bottom-8 right-5 md:right-8 bg-blue-400 h-10 w-10 md:h-14 md:w-14 grid place-items-center rounded-lg text-3xl font-bold">+</div>
-            </Link>
+            {
+                (sessionStorage.getItem("username") === "fitra") ? (            
+                <Link to='/addDestination'>
+                    <div class="fixed bottom-5 md:bottom-8 right-5 md:right-8 bg-blue-400 h-10 w-10 md:h-14 md:w-14 grid place-items-center rounded-lg text-3xl font-bold">+</div>
+                </Link> ) : (null)
+            }
+
 
 
             <div class="flex mt-3 flex-wrap gap-5 p-3 md:px-24 md:gap-12 md:mt-8">

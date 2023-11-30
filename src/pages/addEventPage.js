@@ -70,8 +70,8 @@ export default function AddEventPage(){
         setFile(e.target.files[0]);
     }
 
-    if(sessionStorage.getItem("username") === null || sessionStorage.getItem("username") !== "fitra"){
-        window.location.href = "/";
+    if(sessionStorage.getItem("username") === null){
+        window.location.href = "/login";
         return null;
     }else{
         return(
