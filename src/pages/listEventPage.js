@@ -1,12 +1,13 @@
 import React from "react";
 import '../style/index.css';
 import Navbar from "../components/navbar";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import {Link} from 'react-router-dom';
 
 export default function ListEventPage(){
-    let count = 1; //:D
+    let count = 1;
     const sliderRef = useRef(null);
+    const[dataEvent, setEventData] = useState([]);
 
     useEffect(() => {
         const slider = sliderRef.current;
@@ -20,8 +21,22 @@ export default function ListEventPage(){
             count++;
         }, 3000);
 
-        return () => clearInterval(interval); // Clean up on component unmount
+        return () => clearInterval(interval);
     }, []);
+
+
+    useEffect(() => {
+        fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/event.json')
+        .then((response) => response.json())
+        .then((data) => {
+            const eventArray = Object.keys(data).map((key) => ({
+                id: key,
+                ...data[key]
+            }));
+            setEventData(eventArray);
+        })
+    }, [])
+
     return(
         <>
         <Navbar/><Navbar/>
@@ -38,91 +53,34 @@ export default function ListEventPage(){
                 </div>
             </div>
 
-            <Link to='/addEvent'>
-            <div class="fixed bottom-5 md:bottom-8 right-5 md:right-8 bg-blue-400 h-10 w-10 md:h-14 md:w-14 grid place-items-center rounded-lg text-3xl font-bold">+</div>
-            </Link>
+            {
+                (sessionStorage.getItem("username") === "admin") ? (
+                    <Link to='/addEvent'>
+                    <div class="fixed bottom-5 md:bottom-8 right-5 md:right-8 bg-blue-400 h-10 w-10 md:h-14 md:w-14 grid place-items-center rounded-lg text-3xl font-bold">+</div>
+                    </Link>
+                ) : (null)
+            }
+
 
             <div class="flex justify-between mt-3 flex-wrap gap-5 p-3 md:px-24 md:gap-12 md:mt-8">
-                <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
-                        <div className="w-full h-28">
-                            <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
-                        </div>
-                        <div className="w-full p-3 flex flex-col gap-1">
-                            <h1 className="font-bold">Konser Seventeen asdadas asdadasd a asdada</h1>
-                            <hr></hr>
-                            <div>
-                            <p className="text-sm font-thin">Yogyakarta </p>
-                            <p className="text-sm font-thin">21 November 2023</p>
+                {
+                    dataEvent && dataEvent.map((item) => (
+                        <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
+                            <div className="w-full h-28">
+                                <img src={item.image} className="object-cover h-full w-full rounded-t-md"></img>
                             </div>
-                            <hr></hr>
-                            <p className="text-sm font-mediumt">By : Fitra Ramadhan</p>
-                        </div>
-                    </div>
-
-                <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
-                        <div className="w-full h-28">
-                            <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
-                        </div>
-                        <div className="w-full p-3 flex flex-col gap-1">
-                            <h1 className="font-bold">Konser Seventeen asdadas asdadasd a asdada</h1>
-                            <hr></hr>
-                            <div>
-                            <p className="text-sm font-thin">Yogyakarta </p>
-                            <p className="text-sm font-thin">21 November 2023</p>
+                            <div className="w-full p-3 flex flex-col gap-1">
+                                <h1 className="font-bold">{item.title}</h1>
+                                <hr></hr>
+                                <div>
+                                    <p className="text-sm font-thin" dangerouslySetInnerHTML={{__html : item.desc}}></p>
+                                </div>
+                                <hr></hr>
+                                <p className="text-sm font-light">By : Fitra Ramadhan</p>
                             </div>
-                            <hr></hr>
-                            <p className="text-sm font-mediumt">By : Fitra Ramadhan</p>
                         </div>
-                    </div>
-                
-                <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
-                        <div className="w-full h-28">
-                            <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
-                        </div>
-                        <div className="w-full p-3 flex flex-col gap-1">
-                            <h1 className="font-bold">Konser Seventeen asdadas asdadasd a asdada</h1>
-                            <hr></hr>
-                            <div>
-                            <p className="text-sm font-thin">Yogyakarta </p>
-                            <p className="text-sm font-thin">21 November 2023</p>
-                            </div>
-                            <hr></hr>
-                            <p className="text-sm font-mediumt">By : Fitra Ramadhan</p>
-                        </div>
-                    </div>
-                
-                <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
-                        <div className="w-full h-28">
-                            <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
-                        </div>
-                        <div className="w-full p-3 flex flex-col gap-1">
-                            <h1 className="font-bold">Konser Seventeen asdadas asdadasd a asdada</h1>
-                            <hr></hr>
-                            <div>
-                            <p className="text-sm font-thin">Yogyakarta </p>
-                            <p className="text-sm font-thin">21 November 2023</p>
-                            </div>
-                            <hr></hr>
-                            <p className="text-sm font-mediumt">By : Fitra Ramadhan</p>
-                        </div>
-                    </div>
-                
-                <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
-                        <div className="w-full h-28">
-                            <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
-                        </div>
-                        <div className="w-full p-3 flex flex-col gap-1">
-                            <h1 className="font-bold">Konser Seventeen asdadas asdadasd a asdada</h1>
-                            <hr></hr>
-                            <div>
-                            <p className="text-sm font-thin">Yogyakarta </p>
-                            <p className="text-sm font-thin">21 November 2023</p>
-                            </div>
-                            <hr></hr>
-                            <p className="text-sm font-mediumt">By : Fitra Ramadhan</p>
-                        </div>
-                    </div>
-                
+                    ))
+                }
             </div>
         </>
     );

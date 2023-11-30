@@ -14,6 +14,14 @@ export default function HomePage() {
     const [isLoadingBlog, setIsLoadingBlog] = useState(true);
     const [isLoadingEvent, setIsLoadingEvent] = useState(true);
 
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
     useEffect(() => {
         const slider = sliderRef.current;
         slider.appendChild(slider.firstElementChild.cloneNode(true));
@@ -53,7 +61,6 @@ export default function HomePage() {
             setBlogData(blogArray)
             setIsLoadingBlog(false)
         })
-
     }, [])
 
 
@@ -138,21 +145,29 @@ export default function HomePage() {
                             <span class="sr-only">Loading...</span>
                         </div>
                     ) : (
-                        blogData && blogData.map((item) =>(
-                            <div className="w-full flex mb-4 gap-4 md:gap-10 bg-gray-200 rounded-md group">
-                                <div className="flex-shrink flex-grow basis-2/3 p-2 flex flex-col gap-3 md:justify-between md:p-5">
-                                    <h1 className="font-bold leading-6">{item.title}</h1>
-                                    <p className="hidden font-normal text-xs sm:line-clamp-3 sm:text-ellipsis" dangerouslySetInnerHTML={{ __html: item.desc }}></p>
-                                    <div>
-                                        <p className="text-xs">{item.user}</p>
-                                        <p className="text-xs">{item.date}</p>
+                    
+                        blogData && shuffle([...blogData]).map((item, index) => {
+                            if (index === 0 || index === 1) {
+                                return (
+                                    <div className="w-full flex mb-4 gap-4 md:gap-10 bg-gray-200 rounded-md group">
+                                        <div className="flex-shrink flex-grow basis-2/3 lg:basis-auto p-2 md:flex md:flex-col md:justify-between md:p-5">
+                                            <h1 className="font-bold leading-6">{item.title}</h1>
+                                            <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis">{item.desc}</p>
+                                            <div>
+                                                <p className="text-xs">{item.user}</p>
+                                                <p className="text-xs">{item.date}</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex-shrink flex-grow basis-1/3 lg:basis-auto lg:max-h-44 overflow-hidden">
+                                            <img src={item.image} className="rounded-r-md h-full object-cover w-full group-hover:scale-105 ease-in-out duration-200"></img>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="flex-shrink flex-grow basis-1/3 sm:max-h-52 overflow-hidden">
-                                    <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03774-0/d41586-023-03774-0_26372138.jpg?as=webp" className="rounded-r-md h-full object-cover w-full group-hover:scale-105 ease-in-out duration-200"></img>
-                                </div>
-                            </div>
-                        ))
+                                )
+                            }else{
+                                return(null);
+                            }
+                        })
+                
                     )
                 }
                     <Link to='/listBlog'>

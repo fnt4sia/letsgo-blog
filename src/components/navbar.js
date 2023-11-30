@@ -17,14 +17,14 @@ export default function Navbar () {
     }
 
     return(
-        <nav className="fixed top-0 w-screen h-10 flex justify-between items-center z-50 text-white" style={{backgroundColor: '#232027'}}>
-            <Link to={'/'}><h1 className="self-center py-2 px-6 text-lg font-semibold cursor-pointer">LetsGo Blog</h1></Link>
+        <nav className="fixed top-0 w-screen flex justify-between items-center z-50 text-white py-3 px-6" style={{backgroundColor: '#232027'}}>
+            <Link to={'/'}><h1 className="self-center text-lg font-semibold cursor-pointer">LetsGo Blog</h1></Link>
             <p className='sm:hidden py-2 px-6 cursor-pointer z-50' onClick={handleClick}>KLIK</p>
             {clicked ? (
             <div className={`absolute top-full left-0 w-full px-8 duration-500 opacity-1 translate-y-0 sm:hidden`}>
                 <div className={`flex flex-col w-full items-center gap-3 rounded-xl py-6 text-white font-bold`} style={{backgroundColor: '#3A3053'}}>
                 <ul className='text-center'>
-                    <li className='py-2'>
+                    <li className=''>
                         <p onClick={handleClickWisata} className='cursor-pointer'>Wisata</p>
                         {wisataDrop ? (
                             <ul className='text-center opacity-1 duration-500 max-h-40 text-sm'>
@@ -59,8 +59,8 @@ export default function Navbar () {
             ) : (
             <div className={`absolute top-full left-0 w-full px-8 duration-500 opacity-0 -translate-y-full sm:hidden -z-50`}>
                 <div className={`relative flex flex-col w-full items-center gap-3 rounded-xl py-6 text-white font-bold -z-50`} style={{backgroundColor: '#3A3053'}}>
-                <ul className='text-center'>
-                    <li className='py-2'>
+                <ul className='text-center '>
+                    <li className=''>
                         <p onClick={handleClickWisata} className='cursor-none'>Wisata</p>
                         {wisataDrop ? (
                             <ul className='text-center opacity-1 duration-500 max-h-40 text-sm cursor-none'>
@@ -82,13 +82,13 @@ export default function Navbar () {
                             </ul>
                         )}
                     </li>
-                    <li className='py-2 cursor-none'>Komunitas</li>
-                    <li className='py-2 cursor-none'>Akun</li>
+                    <li className='cursor-none'>Komunitas</li>
+                    <li className='cursor-none'>Akun</li>
                 </ul>
                 <hr className='w-3/4'></hr>
                 <ul className='text-center'>
-                    <li className='py-2 cursor-none'>Login</li>
-                    <li className='py-2 cursor-none'>Sign Up</li>
+                    <li className='cursor-none'>Login</li>
+                    <li className='cursor-none'>Sign Up</li>
                 </ul>
                 </div>
             </div>

@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import '../style/index.css';
 import Navbar from "../components/navbar";
-import {  useRef, useEffect } from "react";
+import {  useRef, useEffect, useState } from "react";
 
 export default function WisataPage() {
     let count = 1; //:D
     const sliderRef = useRef(null);
+    const[dataDestination, setDestinationData] = useState([]);
+    const[dataEvent, setEventData] = useState([]);
 
     useEffect(() => {
         const slider = sliderRef.current;
@@ -22,6 +24,31 @@ export default function WisataPage() {
 
         return () => clearInterval(interval);
     }, []);
+
+    useEffect(() => {
+        fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/destination.json')
+        .then((response) => response.json())
+        .then((data) => {
+            const destinationArray = Object.keys(data).map((key) => ({
+                id: key,
+                ...data[key]
+            }));
+            setDestinationData(destinationArray);
+        })
+    }, [])
+
+    useEffect(() => {
+        fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/event.json')
+        .then((response) => response.json())
+        .then((data) => {
+            const eventArray = Object.keys(data).map((key) => ({
+                id: key,
+                ...data[key]
+            }));
+            setEventData(eventArray);
+        })
+    }, [])
+
     return(
         <>
             <Navbar/><Navbar/>
@@ -62,170 +89,183 @@ export default function WisataPage() {
 
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold">Rekomendasi Destinasi Wisata</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Prambanan</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
-
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Candi ujung dunia</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Lorem, ipsum dolor sit amet consectetur</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Lorem, ipsum dolor sit amet consectetur</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Lorem, ipsum dolor sit amet consectetur</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
-                
+                {
+                    dataDestination && dataDestination.sort(() => Math.random() - 0.5).map((item) => (
+                        <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                            <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
+                            <hr className="mt-2"></hr>
+                            <h3 className="text-center font-bold">{item.title}</h3>
+                            <hr></hr>
+                            <div className="tags flex overflow-x-auto gap-1 p-1">
+                                {
+                                    item.tag && item.tag.map((tag) => (
+                                        <p className="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">{tag}</p>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
+
             <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
             </Link>
 
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="alam">Wisata Alam</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
-
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Prambanan</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
+                {
+                    dataDestination && dataDestination.map((item) =>{
+                        if(item.tag && item.tag.includes("Wisata Alam")) return (
+                            <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                                <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
+                                <hr className="mt-2"></hr>
+                                <h3 className="text-center font-bold">{item.title}</h3>
+                                <hr></hr>
+                                <div className="tags flex overflow-x-auto gap-1 p-1">
+                                    {
+                                        item.tag && item.tag.map((tag) => (
+                                            <p className="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">{tag}</p>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
+
             <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
             </Link>
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="kota">Wisata Kota</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Prambanan</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
+                {
+                    dataDestination && dataDestination.map((item) =>{
+                        if(item.tag && item.tag.includes("Wisata Kota")) return (
+                            <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                                <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
+                                <hr className="mt-2"></hr>
+                                <h3 className="text-center font-bold">{item.title}</h3>
+                                <hr></hr>
+                                <div className="tags flex overflow-x-auto gap-1 p-1">
+                                    {
+                                        item.tag && item.tag.map((tag) => (
+                                            <p className="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">{tag}</p>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
+
             <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
             </Link>
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="sejarah">Wisata Sejarah</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Prambanan</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
+                {
+                    dataDestination && dataDestination.map((item) =>{
+                        if(item.tag && item.tag.includes("Wisata Sejarah")) return (
+                            <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                                <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
+                                <hr className="mt-2"></hr>
+                                <h3 className="text-center font-bold">{item.title}</h3>
+                                <hr></hr>
+                                <div className="tags flex overflow-x-auto gap-1 p-1">
+                                    {
+                                        item.tag && item.tag.map((tag) => (
+                                            <p className="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">{tag}</p>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
+
             <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
             </Link>
+            
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="edukasi">Wisata Edukasi</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Prambanan</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
+                {
+                    dataDestination && dataDestination.map((item) =>{
+                        if(item.tag && item.tag.includes("Wisata Edukasi")) return (
+                            <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                                <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
+                                <hr className="mt-2"></hr>
+                                <h3 className="text-center font-bold">{item.title}</h3>
+                                <hr></hr>
+                                <div className="tags flex overflow-x-auto gap-1 p-1">
+                                    {
+                                        item.tag && item.tag.map((tag) => (
+                                            <p className="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">{tag}</p>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
+
             <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
             </Link>
+
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="religi">Wisata Religi</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Prambanan</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
+                {
+                    dataDestination && dataDestination.map((item) =>{
+                        if(item.tag && item.tag.includes("Wisata Religi")) return (
+                            <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                                <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
+                                <hr className="mt-2"></hr>
+                                <h3 className="text-center font-bold">{item.title}</h3>
+                                <hr></hr>
+                                <div className="tags flex overflow-x-auto gap-1 p-1">
+                                    {
+                                        item.tag && item.tag.map((tag) => (
+                                            <p className="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">{tag}</p>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
+
             <Link to='/listDestination'>
             <p className="pr-5 text-right text-sm font-light cursor-pointer">See More {'->'}</p>
             </Link>
+
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="event">Event Menarik</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
-                <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                    <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
-                    <hr class="mt-2"></hr>
-                    <h3 class="text-center font-bold">Prambanan</h3>
-                    <hr></hr>
-                    <div class="tags flex overflow-x-auto gap-1 p-1">
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
-                        <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
-                    </div>
-                </div>
+                {
+                    dataEvent && dataEvent.sort(() => Math.random() - 0.5).map((item) =>(
+                        <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
+                            <div className="w-full h-28">
+                                <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
+                            </div>
+                            <div className="w-full p-3 flex flex-col gap-1">
+                                <h1 className="font-bold">{item.title}</h1>
+                                <hr></hr>
+                                <div>
+                                <p className="text-sm font-thin" dangerouslySetInnerHTML={{__html: item.desc }}></p>
+                                </div>
+                                <hr></hr>
+                                <p className="text-sm font-light">{`By :  ${item.user}`}</p>
+                            </div>
+                        </div>
+                        )
+                    )
+                }
             </div>
         </>
     );
