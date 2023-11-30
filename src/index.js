@@ -14,6 +14,7 @@ import BlogPage from './pages/blogPage';
 import SearchPage from './pages/searchPage';
 import LogOut from './services/logout';
 import AddeventPage from './pages/addEventPage';
+import TestPage from './pages/testPage';
 
 import {
   createBrowserRouter,
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
   {
     path: "/addevent",
     element: <AddeventPage/>
+  },
+  {
+    path: "/test",
+    element: <TestPage/>
   }
 ])
 

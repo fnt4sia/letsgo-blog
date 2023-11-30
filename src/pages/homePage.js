@@ -1,11 +1,14 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import '../style/index.css';
-import {useRef, useEffect} from 'react';
+import {useRef, useEffect, useState} from 'react';
 
 export default function HomePage() {
     let count = 1; //:D
     const sliderRef = useRef(null);
+    const [destinationData, setDestinationData] = useState([]);
+    const [blogData, setBlogData] = useState([]);
+    const [eventData, setEventData] = useState([]);
 
     useEffect(() => {
         const slider = sliderRef.current;
@@ -20,6 +23,24 @@ export default function HomePage() {
         }, 3000);
 
         return () => clearInterval(interval); // Clean up on component unmount
+    }, []);
+
+    useEffect(() => { 
+        fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/destination.json')
+        .then((response) => response.json())
+        .then((json) => setDestinationData(json))
+    }, []);
+
+    useEffect(() => {
+        fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/blog.json')
+        .then((response) => response.json())
+        .then((json) => setBlogData(json))
+    }, []);
+
+    useEffect(() => {
+        fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/event.json')
+        .then((response) => response.json())
+        .then((json) => setEventData(json))
     }, []);
 
     return(
