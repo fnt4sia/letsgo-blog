@@ -10,6 +10,14 @@ export default function WisataPage() {
     const[dataDestination, setDestinationData] = useState([]);
     const[dataEvent, setEventData] = useState([]);
 
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
     useEffect(() => {
         const slider = sliderRef.current;
         slider.appendChild(slider.firstElementChild.cloneNode(true));
@@ -90,7 +98,8 @@ export default function WisataPage() {
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold">Rekomendasi Destinasi Wisata</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
                 {
-                    dataDestination && dataDestination.sort(() => Math.random() - 0.5).map((item) => (
+                    dataDestination && shuffle([...dataDestination]).map((item, index) => {
+                        if(index < 5) return (
                         <Link to={`/destination/${item.id}`} className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                             <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
                             <hr className="mt-2"></hr>
@@ -104,7 +113,7 @@ export default function WisataPage() {
                                 }
                             </div>
                         </Link>
-                    ))
+                    )})
                 }
             </div>
 
@@ -115,8 +124,11 @@ export default function WisataPage() {
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="alam">Wisata Alam</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
                 {
-                    dataDestination && dataDestination.map((item) =>{
-                        if(item.tag && item.tag.includes("Wisata Alam")) return (
+                    dataDestination && shuffle([...dataDestination]).map((item) =>{
+                        let selected = 0;
+                        if(item.tag && item.tag.includes("Wisata Alam") && selected < 5) {
+                        selected++;
+                        return (
                             <Link to={`/destination/${item.id}`} className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                                 <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
                                 <hr className="mt-2"></hr>
@@ -130,8 +142,8 @@ export default function WisataPage() {
                                     }
                                 </div>
                             </Link>
-                        )
-                    })
+                        ) 
+                    }})
                 }
             </div>
 
@@ -141,9 +153,12 @@ export default function WisataPage() {
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="kota">Wisata Kota</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
                 {
-                    dataDestination && dataDestination.map((item) =>{
-                        if(item.tag && item.tag.includes("Wisata Kota")) return (
-                            <Link to={`/destination/${item.id}`}  className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                    dataDestination && shuffle([...dataDestination]).map((item) =>{
+                        let selected = 0;
+                        if(item.tag && item.tag.includes("Wisata Kota") && selected < 5) {
+                        selected++;
+                        return (
+                            <Link to={`/destination/${item.id}`} className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                                 <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
                                 <hr className="mt-2"></hr>
                                 <h3 className="text-center font-bold">{item.title}</h3>
@@ -156,8 +171,9 @@ export default function WisataPage() {
                                     }
                                 </div>
                             </Link>
-                        )
-                    })
+                        ) 
+                    }
+                })
                 }
             </div>
 
@@ -167,9 +183,12 @@ export default function WisataPage() {
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="sejarah">Wisata Sejarah</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
                 {
-                    dataDestination && dataDestination.map((item) =>{
-                        if(item.tag && item.tag.includes("Wisata Sejarah")) return (
-                            <Link to={`/destination/${item.id}`}  className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                    dataDestination && shuffle([...dataDestination]).map((item) =>{
+                        let selected = 0;
+                        if(item.tag && item.tag.includes("Wisata Sejarah") && selected < 5) {
+                        selected++;
+                        return (
+                            <Link to={`/destination/${item.id}`} className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                                 <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
                                 <hr className="mt-2"></hr>
                                 <h3 className="text-center font-bold">{item.title}</h3>
@@ -182,7 +201,8 @@ export default function WisataPage() {
                                     }
                                 </div>
                             </Link>
-                        )
+                        ) 
+                    }
                     })
                 }
             </div>
@@ -194,9 +214,12 @@ export default function WisataPage() {
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="edukasi">Wisata Edukasi</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
                 {
-                    dataDestination && dataDestination.map((item) =>{
-                        if(item.tag && item.tag.includes("Wisata Edukasi")) return (
-                            <Link to={`/destination/${item.id}`}  className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                    dataDestination && shuffle([...dataDestination]).map((item) =>{
+                        let selected = 0;
+                        if(item.tag && item.tag.includes("Wisata Edukasi") && selected < 5) {
+                        selected++;
+                        return (
+                            <Link to={`/destination/${item.id}`} className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                                 <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
                                 <hr className="mt-2"></hr>
                                 <h3 className="text-center font-bold">{item.title}</h3>
@@ -209,7 +232,8 @@ export default function WisataPage() {
                                     }
                                 </div>
                             </Link>
-                        )
+                        ) 
+                    }
                     })
                 }
             </div>
@@ -221,9 +245,12 @@ export default function WisataPage() {
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="religi">Wisata Religi</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
                 {
-                    dataDestination && dataDestination.map((item) =>{
-                        if(item.tag && item.tag.includes("Wisata Religi")) return (
-                            <Link to={`/destination/${item.id}`}  className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                    dataDestination && shuffle([...dataDestination]).map((item) =>{
+                        let selected = 0;
+                        if(item.tag && item.tag.includes("Wisata Religi") && selected < 5) {
+                        selected++;
+                        return (
+                            <Link to={`/destination/${item.id}`} className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                                 <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
                                 <hr className="mt-2"></hr>
                                 <h3 className="text-center font-bold">{item.title}</h3>
@@ -236,7 +263,8 @@ export default function WisataPage() {
                                     }
                                 </div>
                             </Link>
-                        )
+                        ) 
+                    }
                     })
                 }
             </div>
@@ -248,7 +276,8 @@ export default function WisataPage() {
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold" id="event">Event Menarik</h3>
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
                 {
-                    dataEvent && dataEvent.sort(() => Math.random() - 0.5).map((item) =>(
+                    dataEvent && shuffle([...dataEvent]).map((item, index) => {
+                        if(index < 5) return (
                         <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
                             <div className="w-full h-28">
                                 <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
@@ -264,6 +293,7 @@ export default function WisataPage() {
                             </div>
                         </div>
                         )
+                    }
                     )
                 }
             </div>

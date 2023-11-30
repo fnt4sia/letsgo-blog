@@ -107,21 +107,23 @@ export default function HomePage() {
                             <span class="sr-only">Loading...</span>
                         </div>
                     ) : (
-                        destinationData && destinationData.map((item) =>(
-                            <Link to={`/destination/${item.id}`} className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                                <img src={item.image[0]} className="w-full rounded-t-md h-48 object-cover"></img>
-                                   <hr className="mt-2"></hr>
-                                <h3 className="text-center font-bold">{item.title}</h3>
-                                <hr></hr>
-                                <div className="tags flex overflow-x-auto gap-1 p-1">
-                                    {
-                                        item.tag && item.tag.map((tag) => (
-                                            <p className="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">{tag}</p>
+                        destinationData && shuffle([...destinationData]).map((item,index) => {
+                            if(index < 5) return(
+                                <Link to={`/destination/${item.id}`}  className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                                    <img src={item.image[0]} className="w-full rounded-t-md h-48 object-cover"></img>
+                                    <hr className="mt-2"></hr>
+                                    <h3 className="text-center font-bold">{item.title}</h3>
+                                    <hr></hr>
+                                    <div className="tags flex overflow-x-auto gap-1 p-1">
+                                        {
+                                            item.tag && item.tag.map((tag) => (
+                                                <p className="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">{tag}</p>
                                             ))
                                         }
-                                </div>
-                            </Link>
-                        ))
+                                    </div>
+                                </Link>
+                            )}
+                        )
                     )
                 }
                 </div>
@@ -187,7 +189,8 @@ export default function HomePage() {
                                     <span class="sr-only">Loading...</span>
                                 </div>
                             ) : (
-                                eventData && eventData.map((item) =>(
+                                eventData && shuffle([...eventData]).map((item, index) => {
+                                    if(index < 5) return(
                                     <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
                                         <div className="w-full h-28">
                                             <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
@@ -202,7 +205,7 @@ export default function HomePage() {
                                             <p className="text-sm font-light">{`By :  ${item.user}`}</p>
                                         </div>
                                     </div>
-                                ))
+                                )})
                             )
                         }  
                     </div>

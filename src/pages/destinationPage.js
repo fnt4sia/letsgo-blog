@@ -1,8 +1,9 @@
 import React from "react";
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 import '../style/index.css';
 import {useRef, useEffect, useState} from 'react';
 import Navbar from "../components/navbar";
+
 
 export default function DestinationPage() {
     let count = 1; //:D
