@@ -3,6 +3,7 @@ import '../style/index.css';
 import Navbar from "../components/navbar";
 import { useRef, useEffect, useState } from "react";
 import {Link} from 'react-router-dom';
+import Footer from "../components/footer";
 
 export default function ListEventPage(){
     let count = 1;
@@ -82,6 +83,7 @@ export default function ListEventPage(){
                     ))
                 }
             </div>
+            <Footer/>
         </>
     );
 }

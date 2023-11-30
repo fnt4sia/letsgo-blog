@@ -3,6 +3,7 @@ import Navbar from "../components/navbar";
 import '../style/index.css';
 import {useRef, useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
+import Footer from "../components/footer";
 
 export default function SearchPage() {
     let count = 1; //:D
@@ -204,9 +205,7 @@ export default function SearchPage() {
                     )
                 }
                 </div>
-    
-                
-    
+                <Footer/>
             </>
         ) 
     }

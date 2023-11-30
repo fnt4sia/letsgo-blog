@@ -19,7 +19,7 @@ export default function Navbar () {
     return(
         <nav className="fixed top-0 w-screen flex justify-between items-center z-50 text-white py-3 px-6" style={{backgroundColor: '#232027'}}>
             <Link to={'/'}><h1 className="self-center text-lg font-semibold cursor-pointer">LetsGo Blog</h1></Link>
-            <p className='sm:hidden py-2 px-6 cursor-pointer z-50' onClick={handleClick}>KLIK</p>
+            <p className='sm:hidden py-2    cursor-pointer z-50' onClick={handleClick}>KLIK</p>
             {clicked ? (
             <div className={`absolute top-full left-0 w-full px-8 duration-500 opacity-1 translate-y-0 sm:hidden`}>
                 <div className={`flex flex-col w-full items-center gap-3 rounded-xl py-6 text-white font-bold`} style={{backgroundColor: '#3A3053'}}>

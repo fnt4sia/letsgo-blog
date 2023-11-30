@@ -69,7 +69,7 @@ const router = createBrowserRouter([
     element: <ListDestinationPage/>
   },
   {
-    path:"/blog/:id`",
+    path:"/blog/:id",
     element: <BlogPage/>
   },
   {
@@ -94,7 +94,10 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <h1 className='w-full h-screen grid place-items-center text-9xl font-bold'>Salah Link Goblog</h1>
+    element: <>
+      <p className='text-xs'>404</p>
+      <h1 className='w-full h-screen grid place-items-center text-8xl font-bold text-center'>Salah Link Goblog</h1>
+    </>
   }
 ])
 

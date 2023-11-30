@@ -7,6 +7,7 @@ import 'react-quill/dist/quill.snow.css';
 import { FaFile } from "react-icons/fa";
 import {initializeApp} from "firebase/app";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import Footer from "../components/footer";
 
 
 export default function AddDestinationPage(){
@@ -131,6 +132,7 @@ export default function AddDestinationPage(){
                         </form>
                     </div>
                 </div>
+                <Footer/>
             </>
         );
     }
