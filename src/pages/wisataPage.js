@@ -4,16 +4,24 @@ import '../style/index.css';
 import Navbar from "../components/navbar";
 
 export default function WisataPage() {
+    let count = 1 //:D
+    const slider = document.querySelector("#slider")
+    slider.appendChild(slider.firstElementChild.cloneNode(true))
+
+    setInterval(()=>{
+        slider.animate(
+        { transform: `translateX(-${(count%slider.childElementCount)*100}%)` },
+        { duration: count%slider.childElementCount == 0? 0: 500, fill: "forwards"})
+        count++;
+    },3000)
     return(
         <>
             <Navbar/><Navbar/>
-            <div class="h-72 bg-black relative grid place-items-center overflow-x-hidden -z-10">
-                <div id="slider" class="slider absolute h-full w-full flex ease-in-out py-4">
-                    <img src="images/Candi-Prambanan-3.jpg" class="h-full min-w-full object-cover opacity-50 "></img>
-                    <img src="images/download.jpg" class="h-full min-w-full object-cover opacity-50"></img>
-                    <img src="images/fakta-menarik-kaws-di-candi-pram-20230822083545.jpg" class="h-full min-w-full object-cover opacity-50"></img>
-                    <img src="images/Untitled.png" class="h-full min-w-full object-cover opacity-50"></img>
-                    <img src="images/Yogyakarta_Indonesia_Prambanan-temple-complex-02.jpg" class="h-full min-w-full object-cover opacity-50"></img>
+            <div class="h-72 mt-10  bg-black relative grid place-items-center overflow-x-hidden -z-10">
+                <div id="slider" class="slider absolute h-full w-full flex ease-in-out">
+                    <img src="https://blog-images.reddoorz.com/uploads/image/file/4511/prambanan-2010-2-of-2.jpg" class="h-full min-w-full object-cover opacity-50 "></img>
+                    <img src="https://www.jababekamorotai.com/wp-content/uploads/2019/12/air-terjun11.jpg" class="h-full min-w-full object-cover opacity-50"></img>
+                    <img src="https://elearn.id/wp-content/uploads/2018/01/Taman-Pintar-Sumbre-afiaanwas-blogspotcom.jpg" class="h-full min-w-full object-cover opacity-50"></img>
                 </div>
                 <div class="flex flex-col justify-center items-center z-10 gap-3 md:gap-6">
                     <h1 class="font-bold text-2xl text-center md:text-4xl z-10 text-white">
