@@ -21,13 +21,13 @@ export default function DestinationPage() {
                 </h1>
             </div>
 
-            <div class="md:p-12 md:pb-0 no-scroll-bar flex flex-wrap overflow-x-auto gap-2 p-2">
+            <div class="md:p-12 md:px-24 md:pb-0 tags flex flex-wrap overflow-x-auto gap-2 p-2">
                 <p class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Wisata kota</p>
                 <p class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Candi</p>
                 <p class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Peninggalan bersejarah</p>
             </div>
 
-            <div class="flex md:px-16 md:mt-5 flex-1 gap-2 md:flex-col lg:flex-row">
+            <div class="flex md:px-24 md:mt-5 flex-1 gap-2 md:flex-col lg:flex-row">
                 <div class="md:w-full">
                     <p class="p-3 text-justify indent-8">
                         Candi Prambanan merupakan candi Hindu yang terbesar di Indonesia. Sampai saat ini belum dapat dipastikan kapan candi ini dibangun dan atas perintah siapa, namun kuat dugaan bahwa Candi Prambanan dibangun sekitar pertengahan abad ke-9 oleh raja dari Wangsa Sanjaya, yaitu Raja Balitung Maha Sambu. Dugaan tersebut didasarkan pada isi Prasasti Syiwagrha yang ditemukan di sekitar Prambanan dan saat ini tersimpan di Museum Nasional di Jakarta. Prasasti berangka tahun 778 Saka (856 M) ini ditulis pada masa pemerintahan Rakai Pikatan.
@@ -49,8 +49,8 @@ export default function DestinationPage() {
                 </div>
             </div>
 
-            <h3 class="pt-5 px-3 md:px-12 text-lg font-bold">Destinasi Wisata Lainnya</h3>
-            <div class="no-scroll-bar flex flex-nowrap md:flex-wrap overflow-x-auto gap-5 p-3 md:px-12 md:gap-12">
+            <h3 class="pt-5 px-3 md:px-24 text-lg font-bold">Destinasi Wisata Lainnya</h3>
+            <div class="tags flex flex-nowrap md:flex-wrap overflow-x-auto gap-5 p-3 md:gap-12 md:px-24">
 
                 <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                     change src
@@ -61,7 +61,7 @@ export default function DestinationPage() {
                     <hr></hr>
 
                     edit/add tags
-                    <div class="no-scroll-bar flex overflow-x-auto gap-1 p-1">
+                    <div class="tags flex overflow-x-auto gap-1 p-1">
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
@@ -73,7 +73,7 @@ export default function DestinationPage() {
                     <hr class="mt-2"></hr>
                     <h3 class="text-center font-bold">Candi ujung dunia</h3>
                     <hr></hr>
-                    <div class="no-scroll-bar flex overflow-x-auto gap-1 p-1">
+                    <div class="tags flex overflow-x-auto gap-1 p-1">
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
@@ -85,7 +85,7 @@ export default function DestinationPage() {
                     <hr class="mt-2"></hr>
                     <h3 class="text-center font-bold">Lorem, ipsum dolor sit amet consectetur</h3>
                     <hr></hr>
-                    <div class="no-scroll-bar flex overflow-x-auto gap-1 p-1">
+                    <div class="tags flex overflow-x-auto gap-1 p-1">
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
@@ -97,7 +97,7 @@ export default function DestinationPage() {
                     <hr class="mt-2"></hr>
                     <h3 class="text-center font-bold">Lorem, ipsum dolor sit amet consectetur</h3>
                     <hr></hr>
-                    <div class="no-scroll-bar flex overflow-x-auto gap-1 p-1">
+                    <div class="tags flex overflow-x-auto gap-1 p-1">
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
@@ -109,7 +109,7 @@ export default function DestinationPage() {
                     <hr class="mt-2"></hr>
                     <h3 class="text-center font-bold">Lorem, ipsum dolor sit amet consectetur</h3>
                     <hr></hr>
-                    <div class="no-scroll-bar flex overflow-x-auto gap-1 p-1">
+                    <div class="tags flex overflow-x-auto gap-1 p-1">
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Wisata kota</p>
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Candi</p>
                         <p class="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">Peninggalan bersejarah</p>
