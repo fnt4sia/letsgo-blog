@@ -9,15 +9,21 @@ export default function DestinationPage() {
     const sliderRef = useRef(null);
     const {id} = useParams();
     const [data, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
     const [destinationData, setDestinationData] = useState([]);
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
 
     useEffect(() => {
         fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/destination/'+id+'.json')
         .then((response) => response.json())
         .then((res)=>{
             setData(res);
-            setIsLoading(false);
         })
     }, []);
 
@@ -41,13 +47,21 @@ export default function DestinationPage() {
         }
     }, [data.image]);
 
-
+    useEffect(() => {
+        fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/destination.json')
+        .then((response) => response.json())
+        .then((data) => {
+            const destinationArray = Object.keys(data).map((key) => ({
+                id: key,
+                ...data[key]
+            }));
+            setDestinationData(destinationArray);
+        })
+    }, [])
 
     return(
         <>
-            <Navbar/>
-            {
-                isLoading? (null) : (            
+            <Navbar/>          
                 <div class="h-72 bg-black relative grid place-items-center overflow-x-hidden -z-10">
                     <div id="slider" class="slider absolute h-full w-full flex ease-in-out" ref={sliderRef}>
                         {
@@ -60,8 +74,6 @@ export default function DestinationPage() {
                         {data.title}
                     </h1>
                 </div>
-                )
-            }
            
             <div class="md:p-12 md:px-24 md:pb-0 tags flex flex-wrap overflow-x-auto gap-2 p-2">
                 {data.tag && data.tag.map((tag) => (
@@ -91,7 +103,27 @@ export default function DestinationPage() {
             </div>
 
             <h3 class="pt-10 px-3 md:px-24 text-lg md:text-xl font-bold">Rekomendasi Destinasi Wisata</h3>
-                <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12"></div>
+            <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
+                {
+                    destinationData && shuffle([...destinationData]).map((item,index) => {
+                        if(index < 5) return(
+                            <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                                <img src={item.image[0]} className="w-full rounded-t-md h-48 object-cover"></img>
+                                <hr className="mt-2"></hr>
+                                <h3 className="text-center font-bold">{item.title}</h3>
+                                <hr></hr>
+                                <div className="tags flex overflow-x-auto gap-1 p-1">
+                                    {
+                                        item.tag && item.tag.map((tag) => (
+                                            <p className="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">{tag}</p>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        )}
+                    )
+                }
+            </div>
         </>      
     );
 }

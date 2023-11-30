@@ -91,6 +91,10 @@ const router = createBrowserRouter([
   {
     path: "/listEvent",
     element: <ListEventPage/>
+  },
+  {
+    path: "*",
+    element: <h1 className='w-full h-screen grid place-items-center text-9xl font-bold'>Salah Link Goblog</h1>
   }
 ])
 
