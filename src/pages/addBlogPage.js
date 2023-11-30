@@ -42,9 +42,11 @@ export default function AddBlogPage(){
             fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/blog.json', {
                 method: 'POST',
                 body: JSON.stringify({
+                    user: sessionStorage.getItem("username"),
                     title: title,
                     desc: desc,
                     image: url,
+                    date: new Date().toLocaleDateString()
                 }),
                 headers: {
                     'Content-Type': 'application/json'

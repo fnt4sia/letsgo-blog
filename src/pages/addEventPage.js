@@ -42,6 +42,7 @@ export default function AddEventPage(){
             fetch('https://letsgo-blog-default-rtdb.asia-southeast1.firebasedatabase.app/event.json', {
                 method: 'POST',
                 body: JSON.stringify({
+                    user: sessionStorage.getItem("username"),
                     title: title,
                     desc: desc,
                     image: url,

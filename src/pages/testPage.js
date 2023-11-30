@@ -23,7 +23,7 @@ export default function TestPage() {
                     <div>
                         <h1>{item.title}</h1>
                         <p>{item.desc}</p>
-                        <p>{item.image.length}</p>
+                        <p>{item.tag.length}</p>
                     </div>
                 ))
             }
