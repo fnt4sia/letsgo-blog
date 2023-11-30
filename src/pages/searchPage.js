@@ -112,7 +112,7 @@ export default function SearchPage() {
                         </div>
                     ) : (
                         destinationData && destinationData.map((item) =>(
-                            <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                            <Link to={`/destination/${item.id}`}  className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                                 <img src={item.image[0]} className="w-full rounded-t-md h-48 object-cover"></img>
                                 <hr className="mt-2"></hr>
                                 <h3 className="text-center font-bold">{item.title}</h3>
@@ -124,7 +124,7 @@ export default function SearchPage() {
                                         ))
                                     }
                                 </div>
-                            </div>
+                            </Link>
                         ))
                     )
                 }

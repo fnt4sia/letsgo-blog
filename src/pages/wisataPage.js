@@ -91,7 +91,7 @@ export default function WisataPage() {
             <div class="tags flex flex-wrap overflow-x-auto gap-5 p-3 md:px-24 md:gap-12">
                 {
                     dataDestination && dataDestination.sort(() => Math.random() - 0.5).map((item) => (
-                        <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                        <Link to={`/destination/${item.id}`} className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                             <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
                             <hr className="mt-2"></hr>
                             <h3 className="text-center font-bold">{item.title}</h3>
@@ -103,7 +103,7 @@ export default function WisataPage() {
                                     ))
                                 }
                             </div>
-                        </div>
+                        </Link>
                     ))
                 }
             </div>
@@ -117,7 +117,7 @@ export default function WisataPage() {
                 {
                     dataDestination && dataDestination.map((item) =>{
                         if(item.tag && item.tag.includes("Wisata Alam")) return (
-                            <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                            <Link to={`/destination/${item.id}`} className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                                 <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
                                 <hr className="mt-2"></hr>
                                 <h3 className="text-center font-bold">{item.title}</h3>
@@ -129,7 +129,7 @@ export default function WisataPage() {
                                         ))
                                     }
                                 </div>
-                            </div>
+                            </Link>
                         )
                     })
                 }
@@ -143,7 +143,7 @@ export default function WisataPage() {
                 {
                     dataDestination && dataDestination.map((item) =>{
                         if(item.tag && item.tag.includes("Wisata Kota")) return (
-                            <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                            <Link to={`/destination/${item.id}`}  className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                                 <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
                                 <hr className="mt-2"></hr>
                                 <h3 className="text-center font-bold">{item.title}</h3>
@@ -155,7 +155,7 @@ export default function WisataPage() {
                                         ))
                                     }
                                 </div>
-                            </div>
+                            </Link>
                         )
                     })
                 }
@@ -169,7 +169,7 @@ export default function WisataPage() {
                 {
                     dataDestination && dataDestination.map((item) =>{
                         if(item.tag && item.tag.includes("Wisata Sejarah")) return (
-                            <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                            <Link to={`/destination/${item.id}`}  className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                                 <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
                                 <hr className="mt-2"></hr>
                                 <h3 className="text-center font-bold">{item.title}</h3>
@@ -181,7 +181,7 @@ export default function WisataPage() {
                                         ))
                                     }
                                 </div>
-                            </div>
+                            </Link>
                         )
                     })
                 }
@@ -196,7 +196,7 @@ export default function WisataPage() {
                 {
                     dataDestination && dataDestination.map((item) =>{
                         if(item.tag && item.tag.includes("Wisata Edukasi")) return (
-                            <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                            <Link to={`/destination/${item.id}`}  className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                                 <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
                                 <hr className="mt-2"></hr>
                                 <h3 className="text-center font-bold">{item.title}</h3>
@@ -208,7 +208,7 @@ export default function WisataPage() {
                                         ))
                                     }
                                 </div>
-                            </div>
+                            </Link>
                         )
                     })
                 }
@@ -223,7 +223,7 @@ export default function WisataPage() {
                 {
                     dataDestination && dataDestination.map((item) =>{
                         if(item.tag && item.tag.includes("Wisata Religi")) return (
-                            <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                            <Link to={`/destination/${item.id}`}  className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                                 <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
                                 <hr className="mt-2"></hr>
                                 <h3 className="text-center font-bold">{item.title}</h3>
@@ -235,7 +235,7 @@ export default function WisataPage() {
                                         ))
                                     }
                                 </div>
-                            </div>
+                            </Link>
                         )
                     })
                 }
