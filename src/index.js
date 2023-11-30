@@ -10,6 +10,8 @@ import AccountPage from './pages/accountPage';
 import AddDestinationPage from './pages/addDestinationPage';
 import ListBlogPage from './pages/listBlogPage';
 import ListDestinationPage from './pages/listDestinationPage';
+import BlogPage from './pages/blogPage';
+import SearchPage from './pages/searchPage';
 
 import {
   createBrowserRouter,
@@ -61,6 +63,14 @@ const router = createBrowserRouter([
   {
     path: "/listDestination",
     element: <ListDestinationPage/>
+  },
+  {
+    path:"/blog",
+    element: <BlogPage/>
+  },
+  {
+    path: "/search",
+    element: <SearchPage/>
   }
 ])
 
