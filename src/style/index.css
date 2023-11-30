@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.image-list{
+  max-width: 240px;
+}
+
 @media (min-width: 640px) {
   html{
     font-size: 18px;

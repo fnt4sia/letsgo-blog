@@ -17,7 +17,6 @@ export default function DestinationPage() {
                     <img src="images/Yogyakarta_Indonesia_Prambanan-temple-complex-02.jpg" class="h-full min-w-full object-cover opacity-50"></img>
                 </div>
                 <h1 class="font-bold text-2xl md:text-4xl z-10 text-white">
-                    Nama Destinasi Wisata
                     Candi Prambanan
                 </h1>
             </div>
