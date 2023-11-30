@@ -4,6 +4,7 @@ import facebook from '../images/icon-facebook.svg';
 import twitter from '../images/icon-twitter.svg';
 import pinterest from '../images/icon-pinterest.svg';
 import instagram from '../images/icon-instagram.svg';
+import { Link } from "react-router-dom";
 
 export default function Footer(){
     return(

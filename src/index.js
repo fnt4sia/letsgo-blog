@@ -6,11 +6,16 @@ import HomePage from './pages/homePage';
 import WisataPage from './pages/wisataPage';
 import DestinationPage from './pages/destinationPage';
 import KomunitasPage from './pages/komunitasPage';
+import AccountPage from './pages/accountPage';
+import AddDestinationPage from './pages/addDestinationPage';
+import ListBlogPage from './pages/listBlogPage';
+import ListDestinationPage from './pages/listDestinationPage';
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import AddBlogPage from './pages/addBlogPage';
 
 const router = createBrowserRouter([
   {
@@ -34,8 +39,28 @@ const router = createBrowserRouter([
     element:<DestinationPage/>
   },
   {
-    path: "/komunitas",
+    path: "/community",
     element: <KomunitasPage/>
+  },
+  {
+    path: "/account",
+    element: <AccountPage/>
+  },
+  {
+    path: "/addBlog",
+    element: <AddBlogPage/>
+  },
+  {
+    path: "/addDestination",
+    element: <AddDestinationPage/>
+  },
+  {
+    path: "/listBlog",
+    element: <ListBlogPage/>
+  },
+  {
+    path: "/listDestination",
+    element: <ListDestinationPage/>
   }
 ])
 
