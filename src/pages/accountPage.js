@@ -75,7 +75,7 @@ export default function AccountPage(){
                         {
                             blogData && [...blogData].reverse().map((item) => {
                                 if(item.user === name) return(
-                                <div className="w-full lg:w-2/5 grow flex gap-4 md:gap-10 bg-gray-200 rounded-md group">
+                                <Link to={`/blog/${item.id}`} className="w-full lg:w-2/5 grow flex gap-4 md:gap-10 bg-gray-200 rounded-md group">
                                     <div className="flex-shrink flex-grow basis-2/3 p-2 flex flex-col gap-3 md:justify-between md:p-5">
                                         <h1 className="font-bold leading-6 sm:line-clamp-3 sm:text-ellipsis">{item.title}</h1>
                                         <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis" dangerouslySetInnerHTML={{__html:item.desc}}></p>
@@ -87,7 +87,7 @@ export default function AccountPage(){
                                     <div className="flex-shrink flex-grow basis-1/3 sm:max-h-56 overflow-hidden">
                                         <img src={item.image} className="rounded-r-md h-full object-cover w-full group-hover:scale-105 ease-in-out duration-200"></img>
                                     </div>
-                                </div>
+                                </Link>
                             )})
                         }
                     </div>
