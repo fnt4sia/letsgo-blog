@@ -3,6 +3,7 @@ import '../style/index.css';
 
 export default function AddDestinationPage(){
     return(
-        <></>
+        <>
+        </>
     );
 }
