@@ -7,12 +7,12 @@ export default function KomunitasPage() {
     return(
         <>
             <Navbar/>
-            <div className="w-full h-60 mt-16 px-3 md:px-10">
-            <div className="b w-full h-full">
+            <div className="w-full min-h-60 mt-16 px-3 md:px-10 ">
+                <div className="b w-full h-full bg-gray-200 relative">
                     <div className="w-full h-2/3">
-                        <img className="w-full object-cover h-full" src="https://media.nature.com/lw767/magazine-assets/d41586-023-03711-1/d41586-023-03711-1_26352646.jpg?as=webp"></img>
+                        <img className="w-full object-cover aspect-video max-h-96" src="https://media.nature.com/lw767/magazine-assets/d41586-023-03711-1/d41586-023-03711-1_26352646.jpg?as=webp"></img>
                     </div>
-                    <h3 className="w-full mt-2 text-lg font-bold">8 Rekomendasi Tempat Wisata Di Yogyakarta !</h3>
+                    <h3 className="absolute w-full text-lg font-bold px-3 md:p-5 md:px-7 bottom-3 text-white md:text-2xl text-center">8 Rekomendasi Tempat Wisata Di Yogyakarta !</h3>
                 </div>
             </div>
 
@@ -28,7 +28,7 @@ export default function KomunitasPage() {
                             <p className="text-xs">Yogyakarta | 26 November 2023</p>
                         </div>
                     </div>
-                    <div className="flex-shrink flex-grow basis-1/3 md:basis-auto md:max-h-44 .image-list">
+                    <div className="flex-shrink flex-grow basis-1/3 md:basis-auto md:max-h-44">
                         <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03774-0/d41586-023-03774-0_26372138.jpg?as=webp" className="rounded-r-md h-full object-cover w-full"></img>
                     </div>
                 </div>
@@ -42,7 +42,7 @@ export default function KomunitasPage() {
                             <p className="text-xs">Yogyakarta | 26 November 2023</p>
                         </div>
                     </div>
-                    <div className="flex-shrink flex-grow basis-1/3 md:basis-auto md:max-h-44 .image-list">
+                    <div className="flex-shrink flex-grow basis-1/3 md:basis-auto md:max-h-44">
                         <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03774-0/d41586-023-03774-0_26372138.jpg?as=webp" className="rounded-r-md h-full object-cover w-full"></img>
                     </div>
                 </div>
@@ -115,7 +115,7 @@ export default function KomunitasPage() {
                             <p className="text-xs">Yogyakarta | 26 November 2023</p>
                         </div>
                     </div>
-                    <div className="flex-shrink flex-grow basis-1/3 md:basis-auto md:max-h-44 .image-list">
+                    <div className="flex-shrink flex-grow basis-1/3 md:basis-auto md:max-h-44">
                         <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03774-0/d41586-023-03774-0_26372138.jpg?as=webp" className="rounded-r-md h-full object-cover w-full"></img>
                     </div>
                 </div>
@@ -128,7 +128,7 @@ export default function KomunitasPage() {
                             <p className="text-xs">Yogyakarta | 26 November 2023</p>
                         </div>
                     </div>
-                    <div className="flex-shrink flex-grow basis-1/3 md:basis-auto md:max-h-44 .image-list">
+                    <div className="flex-shrink flex-grow basis-1/3 md:basis-auto md:max-h-44">
                         <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03774-0/d41586-023-03774-0_26372138.jpg?as=webp" className="rounded-r-md h-full object-cover w-full"></img>
                     </div>
                 </div>
