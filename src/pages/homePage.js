@@ -109,7 +109,7 @@ export default function HomePage() {
                     ) : (
                         destinationData && destinationData.map((item) =>(
                             <div className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                                <img src={item.image[0]} className="w-full rounded-md h-48 object-cover"></img>
+                                <img src={item.image[0]} className="w-full rounded-t-md h-48 object-cover"></img>
                                 <hr className="mt-2"></hr>
                                 <h3 className="text-center font-bold">{item.title}</h3>
                                 <hr></hr>
@@ -150,7 +150,7 @@ export default function HomePage() {
                             if (index === 0 || index === 1) {
                                 return (
                                     <div className="w-full flex mb-4 gap-4 md:gap-10 bg-gray-200 rounded-md group">
-                                        <div className="flex-shrink flex-grow basis-2/3 lg:basis-auto p-2 md:flex md:flex-col md:justify-between md:p-5">
+                                        <div className="flex-shrink flex-grow basis-2/3 lg:basis-3/4 p-2 md:flex md:flex-col md:justify-between md:p-5">
                                             <h1 className="font-bold leading-6">{item.title}</h1>
                                             <p className="hidden font-light text-xs sm:line-clamp-3 sm:text-ellipsis">{item.desc}</p>
                                             <div>
@@ -158,7 +158,7 @@ export default function HomePage() {
                                                 <p className="text-xs">{item.date}</p>
                                             </div>
                                         </div>
-                                        <div className="flex-shrink flex-grow basis-1/3 lg:basis-auto lg:max-h-44 overflow-hidden">
+                                        <div className="flex-shrink flex-grow basis-1/3 lg:basis-1/4 lg:max-h-44 overflow-hidden">
                                             <img src={item.image} className="rounded-r-md h-full object-cover w-full group-hover:scale-105 ease-in-out duration-200"></img>
                                         </div>
                                     </div>

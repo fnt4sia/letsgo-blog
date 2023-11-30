@@ -43,7 +43,7 @@ export default function ListDestinationPage(){
             </Link>
 
 
-            <div class="flex justify-between mt-3 flex-wrap gap-5 p-3 md:px-24 md:gap-12 md:mt-8">
+            <div class="flex mt-3 flex-wrap gap-5 p-3 md:px-24 md:gap-12 md:mt-8">
                 <div class="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
                     <img src="images/Candi-Prambanan-3.jpg" class="w-full rounded-md h-48 object-cover"></img>
                     <hr class="mt-2"></hr>
