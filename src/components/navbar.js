@@ -29,16 +29,14 @@ export default function Navbar () {
                         <a href='/wisata#sejarah'><li className='py-1 font-light cursor-pointer'>sejarah</li></a>
                         <a href='/wisata#edukasi'><li className='py-1 font-light cursor-pointer'>edukasi</li></a>
                         <a href='/wisata#religi'><li className='py-1 font-light cursor-pointer'>religi</li></a>
-                        <a href='/wisata#event'><li className='py-1 font-light cursor-pointer'>event</li></a>
                     </ul>) 
                     : (
-                        <ul className='text-center absolute top-full text-sm opacity-0 duration-300 -translate-y-1/2 -z-50 px-3' style={{backgroundColor: '#232027'}}>
+                        <ul className='text-center absolute top-full text-sm opacity-0 duration-300 -translate-y-full -z-50 px-3' style={{backgroundColor: '#232027'}}>
                             <a href='/wisata#alam'><li className='py-1 font-light cursor-pointer'>alam</li></a>
                             <a href='/wisata#kota'><li className='py-1 font-light cursor-pointer'>kota</li></a>
                             <a href='/wisata#sejarah'><li className='py-1 font-light cursor-pointer'>sejarah</li></a>
                             <a href='/wisata#edukasi'><li className='py-1 font-light cursor-pointer'>edukasi</li></a>
                             <a href='/wisata#religi'><li className='py-1 font-light cursor-pointer'>religi</li></a>
-                            <a href='/wisata#event'><li className='py-1 font-light cursor-pointer'>event</li></a>
                         </ul>
                     )}
   

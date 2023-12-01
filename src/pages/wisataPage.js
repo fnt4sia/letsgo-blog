@@ -76,12 +76,11 @@ export default function WisataPage() {
                         <div class="bg-gray-200 px-2 py-1 rounded-r-sm cursor-pointer">Q</div>
                     </div>
                     <div class="md:px-12 md:pb-0 tags flex flex-wrap overflow-x-auto gap-2 md:gap-5 p-2 justify-center">
-                        <p class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Wisata kota</p>
-                        <p class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Alam</p>
-                        <p class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Keluarga</p>
-                        <p class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Seru</p>
-                        <p class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Murah</p>
-                        <p class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Gunung</p>
+                        <a href="#alam" class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Alam</a>
+                        <a href="#kota" class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Kota</a>
+                        <a href="#sejarah" class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Sejarah</a>
+                        <a href="#edukasi" class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Edukasi</a>
+                        <a href="#religi" class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Religi</a>
                     </div>
                 </div>
             </div>
