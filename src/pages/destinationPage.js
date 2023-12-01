@@ -65,7 +65,7 @@ export default function DestinationPage() {
     return(
         <>
             <Navbar/>          
-                <div class="h-72 bg-black relative grid place-items-center overflow-x-hidden -z-10">
+                <div class="h-72 bg-black relative grid place-items-center overflow-x-hidden -z-10 mt-12">
                     <div id="slider" class="slider absolute h-full w-full flex ease-in-out" ref={sliderRef}>
                         {
                             data.image && data.image.map((img) => (
