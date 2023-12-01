@@ -82,7 +82,7 @@ export default function HomePage() {
         return(
             <>
                 <Navbar/>
-                <div class="h-96 mt-10  bg-black relative grid place-items-center overflow-x-hidden -z-10">
+                <div class="h-96 mt-10  bg-black relative grid place-items-center overflow-x-hidden">
                     <div id="slider" class="slider absolute h-full w-full flex ease-in-out" ref={sliderRef}>
                         <img src="https://blog-images.reddoorz.com/uploads/image/file/4511/prambanan-2010-2-of-2.jpg" class="h-full min-w-full object-cover opacity-50 "></img>
                         <img src="https://www.jababekamorotai.com/wp-content/uploads/2019/12/air-terjun11.jpg" class="h-full min-w-full object-cover opacity-50"></img>
