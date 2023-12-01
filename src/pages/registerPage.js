@@ -63,6 +63,7 @@ export default function RegisterPage() {
                 )
                 .then(res => {
                     if(res.ok) {
+                        sessionStorage.setItem('username', username);
                         window.location.href = '/';
                     }else{
                         setErrorMessage("Something went wrong, Please Try Again");

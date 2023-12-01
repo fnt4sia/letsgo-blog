@@ -54,7 +54,6 @@ export default function ListEventPage(){
                 </div>
             </div>
 
-            
             <Link to='/addEvent'>
                 <div class="fixed bottom-5 md:bottom-8 right-5 md:right-8 bg-blue-400 h-10 w-10 md:h-14 md:w-14 grid place-items-center rounded-lg text-3xl font-bold">+</div>
             </Link>
@@ -73,7 +72,7 @@ export default function ListEventPage(){
                                     <p className="text-sm font-thin" dangerouslySetInnerHTML={{__html : item.desc}}></p>
                                 </div>
                                 <hr></hr>
-                                <p className="text-sm font-light">By : Fitra Ramadhan</p>
+                                <p className="text-sm font-light">By : {item.user}</p>
                             </div>
                         </div>
                     ))
