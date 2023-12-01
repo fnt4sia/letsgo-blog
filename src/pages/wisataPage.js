@@ -58,10 +58,16 @@ export default function WisataPage() {
         })
     }, [])
 
+    function submitSearch(e){
+        e.preventDefault();
+        const inputValue = e.target.elements.inputName.value;        
+        window.location.href = `/search/${inputValue}`;
+    }
+
     return(
         <>
             <Navbar/>
-            <div class="h-72 mt-10  bg-black relative grid place-items-center overflow-x-hidden -z-10">
+            <div class="h-72 mt-10  bg-black relative grid place-items-center overflow-x-hidden">
                 <div id="slider" ref={sliderRef} class="slider absolute h-full w-full flex ease-in-out">
                     <img src="https://blog-images.reddoorz.com/uploads/image/file/4511/prambanan-2010-2-of-2.jpg" class="h-full min-w-full object-cover opacity-50 "></img>
                     <img src="https://www.jababekamorotai.com/wp-content/uploads/2019/12/air-terjun11.jpg" class="h-full min-w-full object-cover opacity-50"></img>
@@ -71,10 +77,10 @@ export default function WisataPage() {
                     <h1 class="font-bold text-2xl text-center md:text-4xl z-10 text-white">
                         Cari Tujuan Wisata Yang Cocok Untukmu
                     </h1>
-                    <div class="flex bg-center w-2/3">
-                        <input type="text" placeholder="Cari sesuatu" class="px-3 py-1 rounded-l-sm w-full"></input>
-                        <div class="bg-gray-200 px-2 py-1 rounded-r-sm cursor-pointer">Q</div>
-                    </div>
+                    <form class="flex bg-center w-2/3" onSubmit={submitSearch}>
+                        <input type="text" placeholder="Cari sesuatu" class="px-3 py-1 rounded-l-sm w-full" name="inputName"></input>
+                        <button type="submit" class="bg-gray-200 px-2 py-1 rounded-r-sm cursor-pointer">Q</button>
+                    </form>
                     <div class="md:px-12 md:pb-0 tags flex flex-wrap overflow-x-auto gap-2 md:gap-5 p-2 justify-center">
                         <a href="#alam" class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg cursor-pointer">Alam</a>
                         <a href="#kota" class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Kota</a>

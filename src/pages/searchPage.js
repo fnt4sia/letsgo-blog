@@ -2,10 +2,11 @@ import React from "react";
 import Navbar from "../components/navbar";
 import '../style/index.css';
 import {useRef, useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import Footer from "../components/footer";
 
 export default function SearchPage() {
+    const keyWord = useParams();
     let count = 1; //:D
     const sliderRef = useRef(null);
     const [destinationData, setDestinationData] = useState([]);
@@ -78,11 +79,17 @@ export default function SearchPage() {
         })
     }, [])
 
+    function submitSearch(e){
+        e.preventDefault();
+        const inputValue = e.target.elements.inputName.value;        
+        window.location.href = `/search/${inputValue}`;
+    }
+
 
         return(
             <>
                 <Navbar/>
-                <div class="h-96 mt-10  bg-black relative grid place-items-center overflow-x-hidden -z-10">
+                <div class="h-96 mt-10  bg-black relative grid place-items-center overflow-x-hidden">
                     <div id="slider" class="slider absolute h-full w-full flex ease-in-out" ref={sliderRef}>
                         <img src="https://blog-images.reddoorz.com/uploads/image/file/4511/prambanan-2010-2-of-2.jpg" class="h-full min-w-full object-cover opacity-50 "></img>
                         <img src="https://www.jababekamorotai.com/wp-content/uploads/2019/12/air-terjun11.jpg" class="h-full min-w-full object-cover opacity-50"></img>
@@ -90,12 +97,12 @@ export default function SearchPage() {
                     </div>
                     <div class="flex flex-col justify-center items-center z-10 gap-3 md:gap-6">
                         <h1 class="font-bold text-2xl text-center md:text-4xl z-10 text-white">
-                            Hasil penelusuran dari "Test"
+                            Hasil penelusuran dari "{keyWord.keyword}"
                         </h1>
-                        <div class="flex bg-center w-2/3">
-                            <input type="text" placeholder="Cari sesuatu" class="px-3 py-1 rounded-l-sm w-full"></input>
-                            <div class="bg-gray-200 px-2 py-1 rounded-r-sm cursor-pointer">Q</div>
-                        </div>
+                        <form class="flex bg-center w-2/3" onSubmit={submitSearch}>
+                            <input type="text" placeholder="Cari sesuatu" class="px-3 py-1 rounded-l-sm w-full" name="inputName"></input>
+                            <button type="submit" class="bg-gray-200 px-2 py-1 rounded-r-sm cursor-pointer">Q</button>
+                        </form>
                     </div>
                 </div>
     
@@ -112,22 +119,27 @@ export default function SearchPage() {
                             <span class="sr-only">Loading...</span>
                         </div>
                     ) : (
-                        destinationData && destinationData.map((item) =>(
-                            <Link to={`/destination/${item.id}`}  className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
-                                <img src={item.image[0]} className="w-full rounded-t-md h-48 object-cover"></img>
-                                <hr className="mt-2"></hr>
-                                <h3 className="text-center font-bold">{item.title}</h3>
-                                <hr></hr>
-                                <div className="tags flex overflow-x-auto gap-1 p-1">
-                                    {
-                                        item.tag && item.tag.map((tag) => (
-                                            <p className="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">{tag}</p>
-                                        ))
-                                    }
-                                </div>
-                            </Link>
-                        ))
-                    )
+                        destinationData && destinationData.map((item) => {
+                            if(item.title && item.tag && (item.title.toLowerCase().includes(keyWord.keyword.toLowerCase()) || item.tag.includes(keyWord.keyword.toLowerCase()))){
+                                return(
+                                    <Link to={`/destination/${item.id}`}  className="bg-gray-100 w-40 md:w-44 rounded-md border-gray-300 border-2 flex flex-col justify-between gap-2 hover:scale-105 ease-in-out duration-150">
+                                        <img src={item.image[0]} className="w-full rounded-t-md h-48 object-cover"></img>
+                                        <hr className="mt-2"></hr>
+                                        <h3 className="text-center font-bold">{item.title}</h3>
+                                        <hr></hr>
+                                        <div className="tags flex overflow-x-auto gap-1 p-1">
+                                            {
+                                                item.tag && item.tag.map((tag) => (
+                                                    <p className="whitespace-nowrap p-0.5 px-2 bg-gray-200 rounded-lg text-sm">{tag}</p>
+                                                ))
+                                            }
+                                        </div>
+                                    </Link>
+                                )
+                            }
+                        }
+                        )
+                    )        
                 }
                 </div>
 
@@ -145,22 +157,26 @@ export default function SearchPage() {
                                     <span class="sr-only">Loading...</span>
                                 </div>
                             ) : (
-                                eventData && eventData.map((item) =>(
-                                    <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
-                                        <div className="w-full h-28">
-                                            <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
-                                        </div>
-                                        <div className="w-full p-3 flex flex-col gap-1">
-                                            <h1 className="font-bold">{item.title}</h1>
-                                            <hr></hr>
-                                            <div>
-                                            <p className="text-sm font-thin" dangerouslySetInnerHTML={{__html: item.desc }}></p>
+                                eventData && eventData.map((item) => {
+                                    if(item.title && item.title.toLowerCase().includes(keyWord.keyword.toLowerCase())){
+                                        return(
+                                            <div className="w-40 min-h-52 flex-shrink-0 bg-gray-100 rounded-md">
+                                                <div className="w-full h-28">
+                                                    <img src="https://media.nature.com/lw767/magazine-assets/d41586-023-03618-x/d41586-023-03618-x_26361588.jpg?as=webp" className="object-cover h-full w-full rounded-t-md"></img>
+                                                </div>
+                                                <div className="w-full p-3 flex flex-col gap-1">
+                                                    <h1 className="font-bold">{item.title}</h1>
+                                                    <hr></hr>
+                                                    <div>
+                                                    <p className="text-sm font-thin" dangerouslySetInnerHTML={{__html: item.desc }}></p>
+                                                    </div>
+                                                    <hr></hr>
+                                                    <p className="text-sm font-light">{`By :  ${item.user}`}</p>
+                                                </div>
                                             </div>
-                                            <hr></hr>
-                                            <p className="text-sm font-light">{`By :  ${item.user}`}</p>
-                                        </div>
-                                    </div>
-                                ))
+                                        )
+                                    }
+                                })
                             )
                         }  
                     </div>
@@ -181,8 +197,8 @@ export default function SearchPage() {
                         </div>
                     ) : (
                     
-                        blogData && shuffle([...blogData]).map((item, index) => {
-                            if (index === 0 || index === 1) {
+                        blogData && blogData.map((item, index) => {
+                            if(item.title && item.title && (item.title.toLowerCase().includes(keyWord.keyword.toLowerCase()))){
                                 return (
                                     <div className="w-full flex mb-4 gap-4 md:gap-10 bg-gray-200 rounded-md group">
                                         <div className="flex-shrink flex-grow basis-2/3 lg:basis-3/4 p-2 md:flex md:flex-col md:justify-between md:p-5">
