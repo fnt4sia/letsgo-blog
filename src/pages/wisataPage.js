@@ -60,8 +60,8 @@ export default function WisataPage() {
 
     return(
         <>
-            <Navbar/><Navbar/>
-            <div class="h-72 mt-10  bg-black relative grid place-items-center overflow-x-hidden">
+            <Navbar/>
+            <div class="h-72 mt-10  bg-black relative grid place-items-center overflow-x-hidden -z-10">
                 <div id="slider" ref={sliderRef} class="slider absolute h-full w-full flex ease-in-out">
                     <img src="https://blog-images.reddoorz.com/uploads/image/file/4511/prambanan-2010-2-of-2.jpg" class="h-full min-w-full object-cover opacity-50 "></img>
                     <img src="https://www.jababekamorotai.com/wp-content/uploads/2019/12/air-terjun11.jpg" class="h-full min-w-full object-cover opacity-50"></img>
@@ -76,7 +76,7 @@ export default function WisataPage() {
                         <div class="bg-gray-200 px-2 py-1 rounded-r-sm cursor-pointer">Q</div>
                     </div>
                     <div class="md:px-12 md:pb-0 tags flex flex-wrap overflow-x-auto gap-2 md:gap-5 p-2 justify-center">
-                        <a href="#alam" class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Alam</a>
+                        <a href="#alam" class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg cursor-pointer">Alam</a>
                         <a href="#kota" class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Kota</a>
                         <a href="#sejarah" class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Sejarah</a>
                         <a href="#edukasi" class="whitespace-nowrap p-1 px-2 bg-gray-200 rounded-lg">Edukasi</a>
